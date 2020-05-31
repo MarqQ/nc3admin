@@ -19,7 +19,13 @@ import nc3e.core.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('login', nc3e.core.views.login, name='login'),
     path('', nc3e.core.views.index, name='index'),
+    path('obras', nc3e.core.views.obras, name='obras'),
+    path('obras-add', nc3e.core.views.obrasAdd, name='obras-add'),
+    path('obras-edit', nc3e.core.views.obrasEdit, name='obras-edit'),
+    path('usuarios', nc3e.core.views.usuarios, name='usuarios'),
+    path('usuarios-edit', nc3e.core.views.usuariosEdit, name='usuarios'),
     path('index2', nc3e.core.views.index2, name='index2'),
     path('index3', nc3e.core.views.index3, name='index3'),
     path('starter', nc3e.core.views.starter, name='starter'),

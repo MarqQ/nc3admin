@@ -4,52 +4,41 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>NC3E | Dashboard</title>
+  <title>NC3E - Editar Obra</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="{% static 'https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css' %}">
-  <!-- Tempusdominus Bbootstrap 4 -->
-  <link rel="stylesheet" href="{% static 'plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css' %}">
-  <!-- iCheck -->
-  <link rel="stylesheet" href="{% static 'plugins/icheck-bootstrap/icheck-bootstrap.min.css' %}">
-  <!-- JQVMap -->
-  <link rel="stylesheet" href="{% static 'plugins/jqvmap/jqvmap.min.css' %}">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="{% static 'plugins/overlayScrollbars/css/OverlayScrollbars.min.css' %}">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="{% static 'plugins/daterangepicker/daterangepicker.css' %}">
-  <!-- summernote -->
-  <link rel="stylesheet" href="{% static 'plugins/summernote/summernote-bs4.css' %}">
+  <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
   <!-- Google Font: Source Sans Pro -->
-  <link href="{% static 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700' %}" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini">
+<!-- Site wrapper -->
 <div class="wrapper">
-
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="{% static '#' %}" role="button"><i class="fas fa-bars"></i></a>
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{% url 'index3' %}" class="nav-link">Início</a>
+        <a href="{% static 'index1.html' %}" class="nav-link">Início</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{% static '#' %}" class="nav-link">Perfil</a>
+        <a href="#" class="nav-link">Perfil</a>
       </li>
     </ul>
 
     <!-- SEARCH FORM -->
     <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Buscar" aria-label="Search">
+        <input class="form-control form-control-navbar" type="search" placeholder="Buscar" aria-label="Buscar">
         <div class="input-group-append">
           <button class="btn btn-navbar" type="submit">
             <i class="fas fa-search"></i>
@@ -62,15 +51,15 @@
     <ul class="navbar-nav ml-auto">
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="{% static '#' %}">
+        <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-comments"></i>
           <span class="badge badge-danger navbar-badge">3</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="{% static '#' %}" class="dropdown-item">
+          <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="{% static 'dist/img/user1-128x128.jpg' %}" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <img src="{% static 'dist/img/user1-128x128.jpg' %}../../dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Brad Diesel
@@ -83,7 +72,7 @@
             <!-- Message End -->
           </a>
           <div class="dropdown-divider"></div>
-          <a href="{% static '#' %}" class="dropdown-item">
+          <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
               <img src="{% static 'dist/img/user8-128x128.jpg' %}" alt="User Avatar" class="img-size-50 img-circle mr-3">
@@ -99,7 +88,7 @@
             <!-- Message End -->
           </a>
           <div class="dropdown-divider"></div>
-          <a href="{% static '#' %}" class="dropdown-item">
+          <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
               <img src="{% static 'dist/img/user3-128x128.jpg' %}" alt="User Avatar" class="img-size-50 img-circle mr-3">
@@ -115,38 +104,38 @@
             <!-- Message End -->
           </a>
           <div class="dropdown-divider"></div>
-          <a href="{% static '#' %}" class="dropdown-item dropdown-footer">See All Messages</a>
+          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
         </div>
       </li>
       <!-- Notifications Dropdown Menu -->
       <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="{% static '#' %}">
+        <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
           <span class="badge badge-warning navbar-badge">15</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <span class="dropdown-item dropdown-header">15 Notifications</span>
           <div class="dropdown-divider"></div>
-          <a href="{% static '#' %}" class="dropdown-item">
+          <a href="#" class="dropdown-item">
             <i class="fas fa-envelope mr-2"></i> 4 new messages
             <span class="float-right text-muted text-sm">3 mins</span>
           </a>
           <div class="dropdown-divider"></div>
-          <a href="{% static '#' %}" class="dropdown-item">
+          <a href="#" class="dropdown-item">
             <i class="fas fa-users mr-2"></i> 8 friend requests
             <span class="float-right text-muted text-sm">12 hours</span>
           </a>
           <div class="dropdown-divider"></div>
-          <a href="{% static '#' %}" class="dropdown-item">
+          <a href="#" class="dropdown-item">
             <i class="fas fa-file mr-2"></i> 3 new reports
             <span class="float-right text-muted text-sm">2 days</span>
           </a>
           <div class="dropdown-divider"></div>
-          <a href="{% static '#' %}" class="dropdown-item dropdown-footer">See All Notifications</a>
+          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="{% static '#' %}" role="button">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
           <i class="fas fa-th-large"></i>
         </a>
       </li>
@@ -397,108 +386,142 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <div class="content-header">
+    <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Dashboard</h1>
-          </div><!-- /.col -->
+            <h1>Editar Obra</h1>
+          </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{% static '#' %}">Início</a></li>
-              <li class="breadcrumb-item active">Início</li>
+              <li class="breadcrumb-item"><a href="#">Início</a></li>
+              <li class="breadcrumb-item active">Editar Obra</li>
             </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
+          </div>
+        </div>
       </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
+    </section>
 
     <!-- Main content -->
     <section class="content">
-      <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
-        <div class="row">
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>0</h3>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Geral</h3>
 
-                <p>Novos Projetos</p>
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                  <i class="fas fa-minus"></i></button>
               </div>
-              <div class="icon">
-                <i class="ion ion-bag"></i>
-              </div>
-              <a href="{% static '#' %}" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
             </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3>0<sup style="font-size: 20px">%</sup></h3>
-
-                <p>Projetos em andamento</p>
+            <div class="card-body">
+              <div class="form-group">
+                <label for="inputName">Nome do Projeto</label>
+                <input type="text" id="inputName" class="form-control">
               </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
+              <div class="form-group">
+                <label for="inputName">E-mail</label>
+                <input type="email" id="email" class="form-control">
+              </div><div class="form-group">
+                <label for="inputName">CNPJ</label>
+                <input type="text" id="cnpj" class="form-control">
               </div>
-              <a href="{% static '#' %}" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
+{#              <div class="form-group">#}
+{#                <label for="inputDescription">Project Description</label>#}
+{#                <textarea id="inputDescription" class="form-control" rows="4"></textarea>#}
+{#              </div>#}
+              <div class="form-group">
+                <label for="inputStatus">Cliente Responsável</label>
+                <select class="form-control custom-select">
+                  <option selected disabled>Selecione</option>
+                  <option>Ricardo Silva</option>
+                  <option>Joaquim Figueiredo</option>
+                  <option>Pamela Duarte</option>
+                </select>
+              </div><div class="form-group">
+                <label for="inputStatus">Engenheiro Responsável</label>
+                <select class="form-control custom-select">
+                  <option selected disabled>Selecione</option>
+                  <option>Ricardo Silva</option>
+                  <option>Joaquim Figueiredo</option>
+                  <option>Pamela Duarte</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="inputClientCompany">Data de Início</label>
+                <input type="date" id="inputStartDate" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="inputProjectLeader">Data de Término</label>
+                <input type="date" id="inputFinishDate" class="form-control">
+              </div>
             </div>
+            <!-- /.card-body -->
           </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3>1</h3>
-
-                <p>Usuários Ativos</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
-              <a href="{% static '#' %}" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>0</h3>
-
-                <p>Projetos Ativos</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-              </div>
-              <a href="{% static '#' %}" class="small-box-footer">Mais Informações <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
+          <!-- /.card -->
         </div>
-        <!-- /.row -->
-        <!-- Main row -->
-        <div class="row">
-          <section class="col-lg-5 connectedSortable">
-          </section>
-          <!-- right col -->
+        <div class="col-md-6">
+          <div class="card card-secondary">
+            <div class="card-header">
+              <h3 class="card-title">Detalhes</h3>
+
+              <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                  <i class="fas fa-minus"></i></button>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <label for="">Dias úteis de trabalho</label>
+                <input type="number" id="" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="InputAddress">Endereço</label>
+                <input type="text" id="InputAddress" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="InputCity">Cidade</label>
+                <input type="text" id="InputCity" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="InputState">Estado</label>
+                <input type="text" id="InputState" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="InputCep">CEP</label>
+                <input type="text" id="InputCep" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="InputCno">CNO</label>
+                <input type="text" id="InputCno" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="InputSite">Site</label>
+                <input type="text" id="InputSite" class="form-control">
+              </div>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
         </div>
-        <!-- /.row (main row) -->
-      </div><!-- /.container-fluid -->
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <a href="#" class="btn btn-secondary">Cancel</a>
+          <input type="submit" value="Create new Porject" class="btn btn-success float-right">
+        </div>
+      </div>
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <strong>&copy; 2020 <a href="{% static 'http://adminlte.io' %}">nc3e</a>.</strong>
 
-    <div class="float-right d-none d-sm-inline-block">
+  <footer class="main-footer mt-5">
+    <div class="float-right d-none d-sm-block">
       <b>Versão</b> 1.0
     </div>
+    <strong>&copy; 2020 <a href="http://adminlte.io">nc3e</a>.</strong>
   </footer>
 
   <!-- Control Sidebar -->
@@ -511,36 +534,10 @@
 
 <!-- jQuery -->
 <script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="{% static 'plugins/jquery-ui/jquery-ui.min.js' %}"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
 <!-- Bootstrap 4 -->
 <script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-<!-- ChartJS -->
-<script src="{% static 'plugins/chart.js/Chart.min.js' %}"></script>
-<!-- Sparkline -->
-<script src="{% static 'plugins/sparklines/sparkline.js' %}"></script>
-<!-- JQVMap -->
-<script src="{% static 'plugins/jqvmap/jquery.vmap.min.js' %}"></script>
-<script src="{% static 'plugins/jqvmap/maps/jquery.vmap.usa.js' %}"></script>
-<!-- jQuery Knob Chart -->
-<script src="{% static 'plugins/jquery-knob/jquery.knob.min.js' %}"></script>
-<!-- daterangepicker -->
-<script src="{% static 'plugins/moment/moment.min.js' %}"></script>
-<script src="{% static 'plugins/daterangepicker/daterangepicker.js' %}"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="{% static 'plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js' %}"></script>
-<!-- Summernote -->
-<script src="{% static 'plugins/summernote/summernote-bs4.min.js' %}"></script>
-<!-- overlayScrollbars -->
-<script src="{% static 'plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js' %}"></script>
 <!-- AdminLTE App -->
-<script src="{% static 'dist/js/adminlte.js' %}"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{% static 'dist/js/pages/dashboard.js' %}"></script>
+<script src="{% static 'dist/js/adminlte.min.js' %}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{% static 'dist/js/demo.js' %}"></script>
 </body>
