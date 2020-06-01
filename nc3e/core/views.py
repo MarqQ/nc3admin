@@ -25,6 +25,10 @@ def usuarios(request):
     return render(request, 'usuarios.html')
 
 
+def usuariosAdd(request):
+    return render(request, 'usuarios-add.html')
+
+
 def usuariosEdit(request):
     return render(request, 'usuarios-edit.html')
 

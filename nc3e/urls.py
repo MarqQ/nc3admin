@@ -25,6 +25,7 @@ urlpatterns = [
     path('obras-add', nc3e.core.views.obrasAdd, name='obras-add'),
     path('obras-edit', nc3e.core.views.obrasEdit, name='obras-edit'),
     path('usuarios', nc3e.core.views.usuarios, name='usuarios'),
+    path('usuarios-add', nc3e.core.views.usuariosAdd, name='usuarios-add'),
     path('usuarios-edit', nc3e.core.views.usuariosEdit, name='usuarios'),
     path('index2', nc3e.core.views.index2, name='index2'),
     path('index3', nc3e.core.views.index3, name='index3'),
