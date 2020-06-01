@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>NC3E - Editar Obra</title>
+  <title>NC3E - Cadastro de Cliente</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -12,13 +12,12 @@
   <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- overlayScrollbars -->
+  <!-- Theme style -->
   <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-mini">
-<!-- Site wrapper -->
 <div class="wrapper">
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -28,7 +27,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{% static 'index1.html' %}" class="nav-link">Início</a>
+        <a href="{% static 'index3.html' %}" class="nav-link">Início</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Perfil</a>
@@ -59,7 +58,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="{% static 'dist/img/user1-128x128.jpg' %}../../dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <img src="{% static 'dist/img/user1-128x128.jpg' %}" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Brad Diesel
@@ -390,12 +389,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Editar Obra</h1>
+            <h1>Cadastro de Cliente</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Início</a></li>
-              <li class="breadcrumb-item active">Editar Obra</li>
+              <li class="breadcrumb-item active">Cadastro de Cliente</li>
             </ol>
           </div>
         </div>
@@ -404,124 +403,159 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="card card-primary">
-            <div class="card-header">
-              <h3 class="card-title">Geral</h3>
-
-              <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                  <i class="fas fa-minus"></i></button>
-              </div>
-            </div>
-            <div class="card-body">
-              <div class="form-group">
-                <label for="inputName">Nome do Projeto</label>
-                <input type="text" id="inputName" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="inputName">E-mail</label>
-                <input type="email" id="email" class="form-control">
-              </div><div class="form-group">
-                <label for="inputName">CNPJ</label>
-                <input type="text" id="cnpj" class="form-control">
-              </div>
-{#              <div class="form-group">#}
-{#                <label for="inputDescription">Project Description</label>#}
-{#                <textarea id="inputDescription" class="form-control" rows="4"></textarea>#}
+      <div class="container-fluid">
+        <div class="row">
+{#          <div class="col-md-3">#}
+{##}
+{#            <!-- Profile Image -->#}
+{#            <div class="card card-primary card-outline">#}
+{#              <div class="card-body box-profile">#}
+{#                <div class="text-center">#}
+{#                  <img class="profile-user-img img-fluid img-circle"#}
+{#                       src="{% static 'dist/img/boxed-bg.png' %}"#}
+{#                       alt="User profile picture">#}
+{#                </div>#}
+{##}
+{#                <h3 class="profile-username text-center">Nome Fantasia</h3>#}
+{##}
+{#                <p class="text-muted text-center">Nome Jurídico</p>#}
+{##}
+{#                <ul class="list-group list-group-unbordered mb-3">#}
+{#                  <li class="list-group-item">#}
+{#                    <b>Último acesso</b> <a class="float-right">--:--</a>#}
+{#                  </li>#}
+{#                  <li class="list-group-item">#}
+{#                    <b>Cargo</b> <a class="float-right">13,287</a>#}
+{#                  </li>#}
+{#                </ul>#}
+{##}
+{#                <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>#}
 {#              </div>#}
-              <div class="form-group">
-                <label for="inputStatus">Cliente Responsável</label>
-                <select class="form-control custom-select">
-                  <option selected disabled>Selecione</option>
-                  <option>Ricardo Silva</option>
-                  <option>Joaquim Figueiredo</option>
-                  <option>Pamela Duarte</option>
-                </select>
-              </div><div class="form-group">
-                <label for="inputStatus">Engenheiro Responsável</label>
-                <select class="form-control custom-select">
-                  <option selected disabled>Selecione</option>
-                  <option>Ricardo Silva</option>
-                  <option>Joaquim Figueiredo</option>
-                  <option>Pamela Duarte</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="inputClientCompany">Data de Início</label>
-                <input type="date" id="inputStartDate" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="inputProjectLeader">Data de Término</label>
-                <input type="date" id="inputFinishDate" class="form-control">
-              </div>
+{#              <!-- /.card-body -->#}
+{#            </div>#}
+{#            <!-- /.card -->#}
+{##}
+{#            <!-- About Me Box -->#}
+{#            <div class="card card-primary">#}
+{#              <div class="card-header">#}
+{#                <h3 class="card-title">Sobre</h3>#}
+{#              </div>#}
+{#              <!-- /.card-header -->#}
+{#              <div class="card-body">#}
+{##}
+{#                <strong><i class="fas fa-map-marker-alt mr-1"></i> Localização</strong>#}
+{##}
+{#                <p class="text-muted"></p>#}
+{##}
+{#                <hr>#}
+{##}
+{#                <strong><i class="far fa-file-alt mr-1"></i> Ramo de Atividade</strong>#}
+{##}
+{#                <p class="text-muted"></p>#}
+{#              </div>#}
+{#              <!-- /.card-body -->#}
+{#            </div>#}
+{#            <!-- /.card -->#}
+{#          </div>#}
+          <!-- /.col -->
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header p-2">
+                <ul class="nav nav-pills">
+                  <li class="nav-item"><a class="nav-link active" href="#settings" data-toggle="tab">Dados</a></li>
+                </ul>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content">
+                  <div class="active tab-pane" id="settings">
+                    <form class="form-horizontal">
+                      <div class="form-group row">
+                        <label for="inputName" class="col-sm-2 col-form-label">Nome</label>
+                        <div class="col-sm-10">
+                          <input type="email" class="form-control" id="inputName" placeholder="Nome">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Segmento</label>
+                        <div class="col-sm-10">
+                          <input type="email" class="form-control" id="inputEmail" placeholder="Segmento">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputName2" class="col-sm-2 col-form-label">CPF/CNPJ</label>
+                        <div class="col-sm-10">
+                          <input type="email" class="form-control" id="inputEmail" placeholder="CPF/CNPJ">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputName2" class="col-sm-2 col-form-label">Endereço</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="inputName2" placeholder="Endereço">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputName2" class="col-sm-2 col-form-label">Cidade</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="inputName2" placeholder="Cidade">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputSkills" class="col-sm-2 col-form-label">Estado</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="inputSkills" placeholder="Estado">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputSkills" class="col-sm-2 col-form-label">CEP</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="inputSkills" placeholder="CEP">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputSkills" class="col-sm-2 col-form-label">Telefone</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="inputSkills" placeholder="Telefone">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputSkills" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="inputSkills" placeholder="Email">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputSkills" class="col-sm-2 col-form-label">Observações</label>
+                        <div class="col-sm-10">
+                          <textarea id="inputDescription" class="form-control" rows="4"></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="offset-sm-2 col-sm-10">
+                          <button type="submit" class="btn btn-success">Salvar</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+              </div><!-- /.card-body -->
             </div>
-            <!-- /.card-body -->
+            <!-- /.nav-tabs-custom -->
           </div>
-          <!-- /.card -->
+          <!-- /.col -->
         </div>
-        <div class="col-md-6">
-          <div class="card card-secondary">
-            <div class="card-header">
-              <h3 class="card-title">Detalhes</h3>
-
-              <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                  <i class="fas fa-minus"></i></button>
-              </div>
-            </div>
-            <div class="card-body">
-              <div class="form-group">
-                <label for="">Dias úteis de trabalho</label>
-                <input type="number" id="" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="InputAddress">Endereço</label>
-                <input type="text" id="InputAddress" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="InputCity">Cidade</label>
-                <input type="text" id="InputCity" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="InputState">Estado</label>
-                <input type="text" id="InputState" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="InputCep">CEP</label>
-                <input type="text" id="InputCep" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="InputCno">CNO</label>
-                <input type="text" id="InputCno" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="InputSite">Site</label>
-                <input type="text" id="InputSite" class="form-control">
-              </div>
-            </div>
-            <!-- /.card-body -->
-          </div>
-          <!-- /.card -->
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <a href="#" class="btn btn-secondary">Cancel</a>
-          <input type="submit" value="Create new Porject" class="btn btn-success float-right">
-        </div>
-      </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
-  <footer class="main-footer mt-5">
+  <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
       <b>Versão</b> 1.0
     </div>
-    <strong>&copy; 2020 <a href="http://adminlte.io">nc3e</a>.</strong>
+    <strong>&copy; 2020<a href="http://adminlte.io">nc3e</a>.</strong>
   </footer>
 
   <!-- Control Sidebar -->

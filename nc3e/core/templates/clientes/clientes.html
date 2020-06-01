@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>NC3E - Editar usuário</title>
+  <title>NC3E - Clientes</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -12,12 +12,13 @@
   <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- Theme style -->
+  <!-- overlayScrollbars -->
   <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-mini">
+<!-- Site wrapper -->
 <div class="wrapper">
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -37,7 +38,7 @@
     <!-- SEARCH FORM -->
     <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Buscar" aria-label="Buscar">
+        <input class="form-control form-control-navbar" type="search" placeholder="Buscar" aria-label="Search">
         <div class="input-group-append">
           <button class="btn btn-navbar" type="submit">
             <i class="fas fa-search"></i>
@@ -389,12 +390,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Cadastro de Usuário</h1>
+            <h1>Clientes</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Início</a></li>
-              <li class="breadcrumb-item active">Cadastro Usuário</li>
+              <li class="breadcrumb-item active">Clientes</li>
             </ol>
           </div>
         </div>
@@ -403,190 +404,270 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-3">
 
-            <!-- Profile Image -->
-            <div class="card card-primary card-outline">
-              <div class="card-body box-profile">
-                <div class="text-center">
-                  <img class="profile-user-img img-fluid img-circle"
-                       src="{% static 'dist/img/user4-128x128.jpg' %}"
-                       alt="User profile picture">
-                </div>
+      <!-- Default box -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Clientes Cadastrados</h3>
 
-                <h3 class="profile-username text-center">Nome</h3>
-
-                <p class="text-muted text-center">Cargo</p>
-
-                <ul class="list-group list-group-unbordered mb-3">
-                  <li class="list-group-item">
-                    <b>Último acesso</b> <a class="float-right">--:--</a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Obra</b> <a class="float-right"></a>
-                  </li>
-{#                  <li class="list-group-item">#}
-{#                    <b>Cargo</b> <a class="float-right">13,287</a>#}
-{#                  </li>#}
-                </ul>
-
-{#                <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>#}
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-
-            <!-- About Me Box -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Sobre</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-
-                <strong><i class="fas fa-map-marker-alt mr-1"></i> Localização</strong>
-
-                <p class="text-muted"></p>
-
-                <hr>
-
-                <strong><i class="far fa-file-alt mr-1"></i> Notas</strong>
-
-                <p class="text-muted"></p>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
+          <div class="card-tools">
+              <a class="btn btn-info btn-sm" href="#">
+                  <i class="">
+                  </i>
+                  Cadastrar novo Cliente
+              </a>
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+              <i class="fas fa-minus"></i></button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+              <i class="fas fa-times"></i></button>
           </div>
-          <!-- /.col -->
-          <div class="col-md-9">
-            <div class="card">
-              <div class="card-header p-2">
-                <ul class="nav nav-pills">
-                  <li class="nav-item"><a class="nav-link active" href="#settings" data-toggle="tab">Dados</a></li>
-                </ul>
-              </div><!-- /.card-header -->
-              <div class="card-body">
-                <div class="tab-content">
-                  <div class="active tab-pane" id="settings">
-                    <form class="form-horizontal">
-                      <div class="form-group row">
-                        <label for="inputName" class="col-sm-2 col-form-label">Nome</label>
-                        <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputName" placeholder="Nome">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputEmail" class="col-sm-2 col-form-label">E-mail</label>
-                        <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputEmail" placeholder="E-mail">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">Função</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputName2" placeholder="Função">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">CPF</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputSkills" placeholder="CPF">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">CNPJ</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputSkills" placeholder="CNPJ">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">Data de Nascimento</label>
-                        <div class="col-sm-10">
-                          <input type="date" class="form-control" id="inputSkills" placeholder="Skills">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">Telefone</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputSkills" placeholder="Telefone">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">CEP</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputSkills" placeholder="CEP">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">Estado</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputSkills" placeholder="Estado">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">Cidade</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputName2" placeholder="Cidade">
-                        </div>
-                      </div>
-                        <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">Logradouro</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputName2" placeholder="Logradouro">
-                        </div>
-                      </div>
-                        <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">CREA</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputName2" placeholder="CREA">
-                        </div>
-                      </div>
-                        <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">Senha</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputName2" placeholder="******">
-                        </div>
-                      </div>
-
-{#                      <div class="form-group row">#}
-{#                        <div class="offset-sm-2 col-sm-10">#}
-{#                          <div class="checkbox">#}
-{#                            <label>#}
-{#                              <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>#}
-{#                            </label>#}
-{#                          </div>#}
-{#                        </div>#}
-{#                      </div>#}
-                      <div class="form-group row">
-                        <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" class="btn btn-danger">Salvar</button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                  <!-- /.tab-pane -->
-                </div>
-                <!-- /.tab-content -->
-              </div><!-- /.card-body -->
-            </div>
-            <!-- /.nav-tabs-custom -->
-          </div>
-          <!-- /.col -->
         </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
+        <div class="card-body p-0">
+          <table class="table table-striped projects">
+              <thead>
+                  <tr>
+                      <th style="width: 1%">
+                          #
+                      </th>
+                      <th style="width: 20%">
+                          Cliente
+                      </th>
+                      <th style="width: 30%">
+                          Logo
+                      </th>
+                      <th>
+                          Segmento
+                      </th>
+                      <th style="width: 8%" class="text-center">
+                          Status
+                      </th>
+                      <th style="width: 20%">
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+
+              <!--Início detalhes-->
+
+                  <tr>
+                      <td>
+                          #
+                      </td>
+                      <td>
+                          <a>
+                              Ricardo Silva
+                          </a>
+                          <br/>
+                          <small>
+{#                              Cadastrado em 01-01-2020#}
+                          </small>
+                      </td>
+                      <td>
+                          <ul class="list-inline">
+                              <li class="list-inline-item">
+                                  <img alt="Avatar" class="table-avatar" src="{% static 'dist/img/boxed-bg.jpg' %}">
+                              </li>
+                          </ul>
+                      </td>
+                      <td>
+                          <a>
+                              Construção Civil
+                          </a>
+                          <br/>
+                          <small>
+                          </small>
+                      </td>
+                      <td class="project-state">
+                          <span class="badge badge-success">Em andamento</span>
+                      </td>
+                      <td class="project-actions text-right">
+                          <a class="btn btn-primary btn-sm" href="#">
+                              <i class="fas fa-folder">
+                              </i>
+                              Ver
+                          </a>
+                          <a class="btn btn-info btn-sm" href="#">
+                              <i class="fas fa-pencil-alt">
+                              </i>
+                              Editar
+                          </a>
+                          <a class="btn btn-danger btn-sm" href="#">
+                              <i class="fas fa-trash">
+                              </i>
+                              Deletar
+                          </a>
+                      </td>
+                  </tr>
+
+                  <tr>
+                      <td>
+                          #
+                      </td>
+                      <td>
+                          <a>
+                              Joaquim Figueiredo
+                          </a>
+                          <br/>
+                          <small>
+{#                              Criado em 17-04-2020#}
+                          </small>
+                      </td>
+                      <td>
+                          <ul class="list-inline">
+                              <li class="list-inline-item">
+                                  <img alt="Avatar" class="table-avatar" src="{% static 'dist/img/boxed-bg.jpg' %}">
+                              </li>
+                          </ul>
+                      </td>
+                      <td>
+                          <a>
+                              Posto de Combustível
+                          </a>
+                          <br/>
+                          <small>
+                          </small>
+                      </td>
+                      <td class="project-state">
+                          <span class="badge badge-success">Em andamento</span>
+                      </td>
+                      <td class="project-actions text-right">
+                          <a class="btn btn-primary btn-sm" href="#">
+                              <i class="fas fa-folder">
+                              </i>
+                              Ver
+                          </a>
+                          <a class="btn btn-info btn-sm" href="#">
+                              <i class="fas fa-pencil-alt">
+                              </i>
+                              Editar
+                          </a>
+                          <a class="btn btn-danger btn-sm" href="#">
+                              <i class="fas fa-trash">
+                              </i>
+                              Deletar
+                          </a>
+                      </td>
+                  </tr>
+
+                  <tr>
+                      <td>
+                          #
+                      </td>
+                      <td>
+                          <a>
+                              Pâmela Duarte
+                          </a>
+                          <br/>
+                          <small>
+{#                              Criado em 09-03-2020#}
+                          </small>
+                      </td>
+                      <td>
+                          <ul class="list-inline">
+                              <li class="list-inline-item">
+                                  <img alt="Avatar" class="table-avatar" src="{% static 'dist/img/boxed-bg.jpg' %}">
+                              </li>
+                          </ul>
+                      </td>
+                      <td>
+                          <a>
+                              Ministério da Saúde
+                          </a>
+                          <br/>
+                          <small>
+                          </small>
+                      </td>
+                      <td class="project-state">
+                          <span class="badge badge-warning">Suspenso</span>
+                      </td>
+                      <td class="project-actions text-right">
+                          <a class="btn btn-primary btn-sm" href="#">
+                              <i class="fas fa-folder">
+                              </i>
+                              Ver
+                          </a>
+                          <a class="btn btn-info btn-sm" href="#">
+                              <i class="fas fa-pencil-alt">
+                              </i>
+                              Editar
+                          </a>
+                          <a class="btn btn-danger btn-sm" href="#">
+                              <i class="fas fa-trash">
+                              </i>
+                              Deletar
+                          </a>
+                      </td>
+                  </tr>
+
+                  <tr>
+                      <td>
+                          #
+                      </td>
+                      <td>
+                          <a>
+                              Carlos Silvestre
+                          </a>
+                          <br/>
+                          <small>
+{#                              Criado em 22-04-2020#}
+                          </small>
+                      </td>
+                      <td>
+                          <ul class="list-inline">
+                              <li class="list-inline-item">
+                                  <img alt="Avatar" class="table-avatar" src="{% static 'dist/img/boxed-bg.jpg' %}">
+                              </li>
+                          </ul>
+                      </td>
+                      <td>
+                          <a>
+                              Condomínio Horizontal
+                          </a>
+                          <br/>
+                          <small>
+                          </small>
+                      </td>
+                      <td class="project-state">
+                          <span class="badge badge-danger">Concluído</span>
+                      </td>
+                      <td class="project-actions text-right">
+                          <a class="btn btn-primary btn-sm" href="#">
+                              <i class="fas fa-folder">
+                              </i>
+                              Ver
+                          </a>
+                          <a class="btn btn-info btn-sm" href="#">
+                              <i class="fas fa-pencil-alt">
+                              </i>
+                              Editar
+                          </a>
+                          <a class="btn btn-danger btn-sm" href="#">
+                              <i class="fas fa-trash">
+                              </i>
+                              Deletar
+                          </a>
+                      </td>
+                  </tr>
+
+              <!--Fim detalhes-->
+
+              </tbody>
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
       <b>Versão</b> 1.0
     </div>
-    <strong>&copy; 2020<a href="http://adminlte.io">nc3e</a>.</strong>
+    <strong>&copy; 2020 <a href="{% static 'http://adminlte.io' %}">nc3e</a>.</strong>
   </footer>
 
   <!-- Control Sidebar -->

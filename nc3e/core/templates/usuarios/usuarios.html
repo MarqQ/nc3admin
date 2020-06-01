@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>NC3E - Nova Obra</title>
+  <title>NC3E - Usuários</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -28,7 +28,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{% static 'index1.html' %}" class="nav-link">Início</a>
+        <a href="{% static 'index3.html' %}" class="nav-link">Início</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Perfil</a>
@@ -38,7 +38,7 @@
     <!-- SEARCH FORM -->
     <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Buscar" aria-label="Buscar">
+        <input class="form-control form-control-navbar" type="search" placeholder="Buscar" aria-label="Search">
         <div class="input-group-append">
           <button class="btn btn-navbar" type="submit">
             <i class="fas fa-search"></i>
@@ -59,7 +59,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="{% static 'dist/img/user1-128x128.jpg' %}../../dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <img src="{% static 'dist/img/user1-128x128.jpg' %}" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Brad Diesel
@@ -390,12 +390,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Nova Obra</h1>
+            <h1>Usuários</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Início</a></li>
-              <li class="breadcrumb-item active">Nova Obra</li>
+              <li class="breadcrumb-item active">Usuários</li>
             </ol>
           </div>
         </div>
@@ -404,124 +404,270 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="card card-primary">
-            <div class="card-header">
-              <h3 class="card-title">Geral</h3>
 
-              <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                  <i class="fas fa-minus"></i></button>
-              </div>
-            </div>
-            <div class="card-body">
-              <div class="form-group">
-                <label for="inputName">Nome do Projeto</label>
-                <input type="text" id="inputName" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="inputName">E-mail</label>
-                <input type="email" id="email" class="form-control">
-              </div><div class="form-group">
-                <label for="inputName">CNPJ</label>
-                <input type="text" id="cnpj" class="form-control">
-              </div>
-{#              <div class="form-group">#}
-{#                <label for="inputDescription">Project Description</label>#}
-{#                <textarea id="inputDescription" class="form-control" rows="4"></textarea>#}
-{#              </div>#}
-              <div class="form-group">
-                <label for="inputStatus">Cliente Responsável</label>
-                <select class="form-control custom-select">
-                  <option selected disabled>Selecione</option>
-                  <option>Ricardo Silva</option>
-                  <option>Joaquim Figueiredo</option>
-                  <option>Pamela Duarte</option>
-                </select>
-              </div><div class="form-group">
-                <label for="inputStatus">Engenheiro Responsável</label>
-                <select class="form-control custom-select">
-                  <option selected disabled>Selecione</option>
-                  <option>Ricardo Silva</option>
-                  <option>Joaquim Figueiredo</option>
-                  <option>Pamela Duarte</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="inputClientCompany">Data de Início</label>
-                <input type="date" id="inputStartDate" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="inputProjectLeader">Data de Término</label>
-                <input type="date" id="inputFinishDate" class="form-control">
-              </div>
-            </div>
-            <!-- /.card-body -->
-          </div>
-          <!-- /.card -->
-        </div>
-        <div class="col-md-6">
-          <div class="card card-secondary">
-            <div class="card-header">
-              <h3 class="card-title">Detalhes</h3>
+      <!-- Default box -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Usuários Cadastrados</h3>
 
-              <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                  <i class="fas fa-minus"></i></button>
-              </div>
-            </div>
-            <div class="card-body">
-              <div class="form-group">
-                <label for="">Dias úteis de trabalho</label>
-                <input type="number" id="" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="InputAddress">Endereço</label>
-                <input type="text" id="InputAddress" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="InputCity">Cidade</label>
-                <input type="text" id="InputCity" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="InputState">Estado</label>
-                <input type="text" id="InputState" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="InputCep">CEP</label>
-                <input type="text" id="InputCep" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="InputCno">CNO</label>
-                <input type="text" id="InputCno" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="InputSite">Site</label>
-                <input type="text" id="InputSite" class="form-control">
-              </div>
-            </div>
-            <!-- /.card-body -->
+          <div class="card-tools">
+              <a class="btn btn-info btn-sm" href="#">
+                  <i class="">
+                  </i>
+                  Cadastrar novo usuário
+              </a>
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+              <i class="fas fa-minus"></i></button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+              <i class="fas fa-times"></i></button>
           </div>
-          <!-- /.card -->
         </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <a href="#" class="btn btn-secondary">Cancel</a>
-          <input type="submit" value="Create new Porject" class="btn btn-success float-right">
+        <div class="card-body p-0">
+          <table class="table table-striped projects">
+              <thead>
+                  <tr>
+                      <th style="width: 1%">
+                          #
+                      </th>
+                      <th style="width: 20%">
+                          Nome
+                      </th>
+                      <th style="width: 30%">
+                          Avatar
+                      </th>
+                      <th>
+                          Cargo
+                      </th>
+                      <th style="width: 8%" class="text-center">
+                          Status
+                      </th>
+                      <th style="width: 20%">
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+
+              <!--Início detalhes-->
+
+                  <tr>
+                      <td>
+                          #
+                      </td>
+                      <td>
+                          <a>
+                              Adilson Santos
+                          </a>
+                          <br/>
+                          <small>
+                              Criado em 01-01-2020
+                          </small>
+                      </td>
+                      <td>
+                          <ul class="list-inline">
+                              <li class="list-inline-item">
+                                  <img alt="Avatar" class="table-avatar" src="{% static 'dist/img/avatar.png' %}">
+                              </li>
+                          </ul>
+                      </td>
+                      <td>
+                          <a>
+                              Engenheiro Civil
+                          </a>
+                          <br/>
+                          <small>
+                          </small>
+                      </td>
+                      <td class="project-state">
+                          <span class="badge badge-success">Ativo</span>
+                      </td>
+                      <td class="project-actions text-right">
+                          <a class="btn btn-primary btn-sm" href="#">
+                              <i class="fas fa-folder">
+                              </i>
+                              Ver
+                          </a>
+                          <a class="btn btn-info btn-sm" href="#">
+                              <i class="fas fa-pencil-alt">
+                              </i>
+                              Editar
+                          </a>
+                          <a class="btn btn-danger btn-sm" href="#">
+                              <i class="fas fa-trash">
+                              </i>
+                              Deletar
+                          </a>
+                      </td>
+                  </tr>
+
+                  <tr>
+                      <td>
+                          #
+                      </td>
+                      <td>
+                          <a>
+                              Carla Schaffer
+                          </a>
+                          <br/>
+                          <small>
+                              Criado em 17-04-2020
+                          </small>
+                      </td>
+                      <td>
+                          <ul class="list-inline">
+                              <li class="list-inline-item">
+                                  <img alt="Avatar" class="table-avatar" src="{% static 'dist/img/avatar2.png' %}">
+                              </li>
+                          </ul>
+                      </td>
+                      <td>
+                          <a>
+                              Engenheiro Civil
+                          </a>
+                          <br/>
+                          <small>
+                          </small>
+                      </td>
+                      <td class="project-state">
+                          <span class="badge badge-success">Ativo</span>
+                      </td>
+                      <td class="project-actions text-right">
+                          <a class="btn btn-primary btn-sm" href="#">
+                              <i class="fas fa-folder">
+                              </i>
+                              Ver
+                          </a>
+                          <a class="btn btn-info btn-sm" href="#">
+                              <i class="fas fa-pencil-alt">
+                              </i>
+                              Editar
+                          </a>
+                          <a class="btn btn-danger btn-sm" href="#">
+                              <i class="fas fa-trash">
+                              </i>
+                              Deletar
+                          </a>
+                      </td>
+                  </tr>
+
+                  <tr>
+                      <td>
+                          #
+                      </td>
+                      <td>
+                          <a>
+                              Paula Santos
+                          </a>
+                          <br/>
+                          <small>
+                              Criado em 09-03-2020
+                          </small>
+                      </td>
+                      <td>
+                          <ul class="list-inline">
+                              <li class="list-inline-item">
+                                  <img alt="Avatar" class="table-avatar" src="{% static 'dist/img/avatar3.png' %}">
+                              </li>
+                          </ul>
+                      </td>
+                      <td>
+                          <a>
+                              Administrador
+                          </a>
+                          <br/>
+                          <small>
+                          </small>
+                      </td>
+                      <td class="project-state">
+                          <span class="badge badge-success">Ativo</span>
+                      </td>
+                      <td class="project-actions text-right">
+                          <a class="btn btn-primary btn-sm" href="#">
+                              <i class="fas fa-folder">
+                              </i>
+                              Ver
+                          </a>
+                          <a class="btn btn-info btn-sm" href="#">
+                              <i class="fas fa-pencil-alt">
+                              </i>
+                              Editar
+                          </a>
+                          <a class="btn btn-danger btn-sm" href="#">
+                              <i class="fas fa-trash">
+                              </i>
+                              Deletar
+                          </a>
+                      </td>
+                  </tr>
+
+                  <tr>
+                      <td>
+                          #
+                      </td>
+                      <td>
+                          <a>
+                              Paulo Cordeiro
+                          </a>
+                          <br/>
+                          <small>
+                              Criado em 22-04-2020
+                          </small>
+                      </td>
+                      <td>
+                          <ul class="list-inline">
+                              <li class="list-inline-item">
+                                  <img alt="Avatar" class="table-avatar" src="{% static 'dist/img/avatar04.png' %}">
+                              </li>
+                          </ul>
+                      </td>
+                      <td>
+                          <a>
+                              Engenheiro Civil
+                          </a>
+                          <br/>
+                          <small>
+                          </small>
+                      </td>
+                      <td class="project-state">
+                          <span class="badge badge-success">Ativo</span>
+                      </td>
+                      <td class="project-actions text-right">
+                          <a class="btn btn-primary btn-sm" href="#">
+                              <i class="fas fa-folder">
+                              </i>
+                              Ver
+                          </a>
+                          <a class="btn btn-info btn-sm" href="#">
+                              <i class="fas fa-pencil-alt">
+                              </i>
+                              Editar
+                          </a>
+                          <a class="btn btn-danger btn-sm" href="#">
+                              <i class="fas fa-trash">
+                              </i>
+                              Deletar
+                          </a>
+                      </td>
+                  </tr>
+
+              <!--Fim detalhes-->
+
+              </tbody>
+          </table>
         </div>
+        <!-- /.card-body -->
       </div>
+      <!-- /.card -->
+
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 
-  <footer class="main-footer mt-5">
+  <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
       <b>Versão</b> 1.0
     </div>
-    <strong>&copy; 2020 <a href="http://adminlte.io">nc3e</a>.</strong>
+    <strong>&copy; 2020 <a href="{% static 'http://adminlte.io' %}">nc3e</a>.</strong>
   </footer>
 
   <!-- Control Sidebar -->

@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>NC3E - Editar usuário</title>
+  <title>NC3E - Adicionar Fornecedor</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -389,12 +389,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Editar Usuário</h1>
+            <h1>Cadastro de Fornecedor</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Início</a></li>
-              <li class="breadcrumb-item active">Editar Usuário</li>
+              <li class="breadcrumb-item active">Cadastro de Fornecedor</li>
             </ol>
           </div>
         </div>
@@ -412,21 +412,18 @@
               <div class="card-body box-profile">
                 <div class="text-center">
                   <img class="profile-user-img img-fluid img-circle"
-                       src="{% static 'dist/img/user4-128x128.jpg' %}"
+                       src="{% static 'dist/img/boxed-bg.png' %}"
                        alt="User profile picture">
                 </div>
 
-                <h3 class="profile-username text-center">Paola Duarte</h3>
+                <h3 class="profile-username text-center">Nome Fantasia</h3>
 
-                <p class="text-muted text-center">Engenheira Civil</p>
+                <p class="text-muted text-center">Nome Jurídico</p>
 
                 <ul class="list-group list-group-unbordered mb-3">
-                  <li class="list-group-item">
-                    <b>Último acesso</b> <a class="float-right">13:45</a>
-                  </li>
-                  <li class="list-group-item">
-                    <b>Obra</b> <a class="float-right">PSS Tech</a>
-                  </li>
+{#                  <li class="list-group-item">#}
+{#                    <b>Último acesso</b> <a class="float-right">--:--</a>#}
+{#                  </li>#}
 {#                  <li class="list-group-item">#}
 {#                    <b>Cargo</b> <a class="float-right">13,287</a>#}
 {#                  </li>#}
@@ -448,13 +445,13 @@
 
                 <strong><i class="fas fa-map-marker-alt mr-1"></i> Localização</strong>
 
-                <p class="text-muted">Caboriú, Santa Catarina</p>
+                <p class="text-muted"></p>
 
                 <hr>
 
-                <strong><i class="far fa-file-alt mr-1"></i> Notas</strong>
+                <strong><i class="far fa-file-alt mr-1"></i> Ramo de Atividade</strong>
 
-                <p class="text-muted">Atuando no conselho deliberativo Condomínio do Sol</p>
+                <p class="text-muted"></p>
               </div>
               <!-- /.card-body -->
             </div>
@@ -473,27 +470,25 @@
                   <div class="active tab-pane" id="settings">
                     <form class="form-horizontal">
                       <div class="form-group row">
-                        <label for="inputName" class="col-sm-2 col-form-label">Nome</label>
+                        <label for="inputName" class="col-sm-2 col-form-label">Nome Fantasia</label>
                         <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputName" placeholder="Nome">
+                          <input type="email" class="form-control" id="inputName" placeholder="Nome Fantasia">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputEmail" class="col-sm-2 col-form-label">E-mail</label>
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Nome Jurídico</label>
                         <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputEmail" placeholder="E-mail">
+                          <input type="email" class="form-control" id="inputEmail" placeholder="Nome Jurídico">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">Função</label>
+                        <label for="inputName2" class="col-sm-2 col-form-label">Ramo de Atividade</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputName2" placeholder="Função">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">CPF</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputSkills" placeholder="CPF">
+                          <select class="form-control custom-select">
+                              <option>Construção</option>
+                              <option>Elétrico</option>
+                              <option>Hidráulico</option>
+                            </select>
                         </div>
                       </div>
                       <div class="form-group row">
@@ -503,21 +498,27 @@
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">Data de Nascimento</label>
-                        <div class="col-sm-10">
-                          <input type="date" class="form-control" id="inputSkills" placeholder="Skills">
-                        </div>
-                      </div>
-                      <div class="form-group row">
                         <label for="inputSkills" class="col-sm-2 col-form-label">Telefone</label>
                         <div class="col-sm-10">
                           <input type="text" class="form-control" id="inputSkills" placeholder="Telefone">
                         </div>
                       </div>
-                      <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">CEP</label>
+                        <div class="form-group row">
+                        <label for="inputSkills" class="col-sm-2 col-form-label">Email</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputSkills" placeholder="CEP">
+                          <input type="text" class="form-control" id="inputSkills" placeholder="Email">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputName2" class="col-sm-2 col-form-label">Logradouro</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="inputName2" placeholder="Logradouro">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputName2" class="col-sm-2 col-form-label">Cidade</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="inputName2" placeholder="Cidade">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -527,42 +528,26 @@
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">Cidade</label>
+                        <label for="inputSkills" class="col-sm-2 col-form-label">CEP</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputName2" placeholder="Cidade">
+                          <input type="text" class="form-control" id="inputSkills" placeholder="CEP">
                         </div>
                       </div>
-                        <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">Logradouro</label>
+                      <div class="form-group row">
+                        <label for="inputSkills" class="col-sm-2 col-form-label">Horário de Funcionamento</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputName2" placeholder="Logradouro">
+                          <textarea id="inputDescription" class="form-control" rows="4"></textarea>
                         </div>
                       </div>
-                        <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">CREA</label>
+                      <div class="form-group row">
+                        <label for="inputSkills" class="col-sm-2 col-form-label">Observações</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputName2" placeholder="CREA">
+                          <textarea id="inputDescription" class="form-control" rows="4"></textarea>
                         </div>
                       </div>
-                        <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">Senha</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputName2" placeholder="******">
-                        </div>
-                      </div>
-
-{#                      <div class="form-group row">#}
-{#                        <div class="offset-sm-2 col-sm-10">#}
-{#                          <div class="checkbox">#}
-{#                            <label>#}
-{#                              <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>#}
-{#                            </label>#}
-{#                          </div>#}
-{#                        </div>#}
-{#                      </div>#}
                       <div class="form-group row">
                         <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" class="btn btn-danger">Salvar</button>
+                          <button type="submit" class="btn btn-success">Salvar</button>
                         </div>
                       </div>
                     </form>
@@ -586,7 +571,7 @@
     <div class="float-right d-none d-sm-block">
       <b>Versão</b> 1.0
     </div>
-    <strong>&copy; 2020 <a href="http://adminlte.io">nc3e</a>.</strong>
+    <strong>&copy; 2020<a href="http://adminlte.io">nc3e</a>.</strong>
   </footer>
 
   <!-- Control Sidebar -->

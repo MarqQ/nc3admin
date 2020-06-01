@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>NC3E - Obras</title>
+  <title>NC3E - Editar Cliente</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -12,13 +12,12 @@
   <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  <!-- overlayScrollbars -->
+  <!-- Theme style -->
   <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-mini">
-<!-- Site wrapper -->
 <div class="wrapper">
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -28,17 +27,17 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{% static 'index3.html' %}" class="nav-link">Home</a>
+        <a href="{% static 'index3.html' %}" class="nav-link">Início</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
+        <a href="#" class="nav-link">Perfil</a>
       </li>
     </ul>
 
     <!-- SEARCH FORM -->
     <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control form-control-navbar" type="search" placeholder="Buscar" aria-label="Buscar">
         <div class="input-group-append">
           <button class="btn btn-navbar" type="submit">
             <i class="fas fa-search"></i>
@@ -390,12 +389,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Obras</h1>
+            <h1>Editar Cliente</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Início</a></li>
-              <li class="breadcrumb-item active">Obras</li>
+              <li class="breadcrumb-item active">Editar Cliente</li>
             </ol>
           </div>
         </div>
@@ -404,284 +403,159 @@
 
     <!-- Main content -->
     <section class="content">
-
-      <!-- Default box -->
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Obras Cadastradas</h3>
-
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-              <i class="fas fa-minus"></i></button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fas fa-times"></i></button>
+      <div class="container-fluid">
+        <div class="row">
+{#          <div class="col-md-3">#}
+{##}
+{#            <!-- Profile Image -->#}
+{#            <div class="card card-primary card-outline">#}
+{#              <div class="card-body box-profile">#}
+{#                <div class="text-center">#}
+{#                  <img class="profile-user-img img-fluid img-circle"#}
+{#                       src="{% static 'dist/img/boxed-bg.png' %}"#}
+{#                       alt="User profile picture">#}
+{#                </div>#}
+{##}
+{#                <h3 class="profile-username text-center">Nome Fantasia</h3>#}
+{##}
+{#                <p class="text-muted text-center">Nome Jurídico</p>#}
+{##}
+{#                <ul class="list-group list-group-unbordered mb-3">#}
+{#                  <li class="list-group-item">#}
+{#                    <b>Último acesso</b> <a class="float-right">--:--</a>#}
+{#                  </li>#}
+{#                  <li class="list-group-item">#}
+{#                    <b>Cargo</b> <a class="float-right">13,287</a>#}
+{#                  </li>#}
+{#                </ul>#}
+{##}
+{#                <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>#}
+{#              </div>#}
+{#              <!-- /.card-body -->#}
+{#            </div>#}
+{#            <!-- /.card -->#}
+{##}
+{#            <!-- About Me Box -->#}
+{#            <div class="card card-primary">#}
+{#              <div class="card-header">#}
+{#                <h3 class="card-title">Sobre</h3>#}
+{#              </div>#}
+{#              <!-- /.card-header -->#}
+{#              <div class="card-body">#}
+{##}
+{#                <strong><i class="fas fa-map-marker-alt mr-1"></i> Localização</strong>#}
+{##}
+{#                <p class="text-muted"></p>#}
+{##}
+{#                <hr>#}
+{##}
+{#                <strong><i class="far fa-file-alt mr-1"></i> Ramo de Atividade</strong>#}
+{##}
+{#                <p class="text-muted"></p>#}
+{#              </div>#}
+{#              <!-- /.card-body -->#}
+{#            </div>#}
+{#            <!-- /.card -->#}
+{#          </div>#}
+          <!-- /.col -->
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header p-2">
+                <ul class="nav nav-pills">
+                  <li class="nav-item"><a class="nav-link active" href="#settings" data-toggle="tab">Dados</a></li>
+                </ul>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <div class="tab-content">
+                  <div class="active tab-pane" id="settings">
+                    <form class="form-horizontal">
+                      <div class="form-group row">
+                        <label for="inputName" class="col-sm-2 col-form-label">Nome</label>
+                        <div class="col-sm-10">
+                          <input type="email" class="form-control" id="inputName" placeholder="Nome">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Segmento</label>
+                        <div class="col-sm-10">
+                          <input type="email" class="form-control" id="inputEmail" placeholder="Segmento">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputName2" class="col-sm-2 col-form-label">CPF/CNPJ</label>
+                        <div class="col-sm-10">
+                          <input type="email" class="form-control" id="inputEmail" placeholder="CPF/CNPJ">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputName2" class="col-sm-2 col-form-label">Endereço</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="inputName2" placeholder="Endereço">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputName2" class="col-sm-2 col-form-label">Cidade</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="inputName2" placeholder="Cidade">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputSkills" class="col-sm-2 col-form-label">Estado</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="inputSkills" placeholder="Estado">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputSkills" class="col-sm-2 col-form-label">CEP</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="inputSkills" placeholder="CEP">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputSkills" class="col-sm-2 col-form-label">Telefone</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="inputSkills" placeholder="Telefone">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputSkills" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="inputSkills" placeholder="Email">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputSkills" class="col-sm-2 col-form-label">Observações</label>
+                        <div class="col-sm-10">
+                          <textarea id="inputDescription" class="form-control" rows="4"></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="offset-sm-2 col-sm-10">
+                          <button type="submit" class="btn btn-success">Salvar</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <!-- /.tab-pane -->
+                </div>
+                <!-- /.tab-content -->
+              </div><!-- /.card-body -->
+            </div>
+            <!-- /.nav-tabs-custom -->
           </div>
+          <!-- /.col -->
         </div>
-        <div class="card-body p-0">
-          <table class="table table-striped projects">
-              <thead>
-                  <tr>
-                      <th style="width: 1%">
-                          #
-                      </th>
-                      <th style="width: 20%">
-                          Projeto
-                      </th>
-                      <th style="width: 30%">
-                          Equipe
-                      </th>
-                      <th>
-                          Progresso
-                      </th>
-                      <th style="width: 8%" class="text-center">
-                          Andamento
-                      </th>
-                      <th style="width: 20%">
-                      </th>
-                  </tr>
-              </thead>
-              <tbody>
-
-              <!--Início detalhes-->
-
-                  <tr>
-                      <td>
-                          #
-                      </td>
-                      <td>
-                          <a>
-                              Condomínio do Sol
-                          </a>
-                          <br/>
-                          <small>
-                              Criado em 04-04-2020
-                          </small>
-                      </td>
-                      <td>
-                          <ul class="list-inline">
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="{% static 'dist/img/avatar.png' %}">
-                              </li>
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="{% static 'dist/img/avatar2.png' %}">
-                              </li>
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="{% static 'dist/img/avatar3.png' %}">
-                              </li>
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="{% static 'dist/img/avatar04.png' %}">
-                              </li>
-                          </ul>
-                      </td>
-                      <td class="project_progress">
-                          <div class="progress progress-sm">
-                              <div class="progress-bar bg-green" role="progressbar" aria-volumenow="57" aria-volumemin="0" aria-volumemax="100" style="width: 57%">
-                              </div>
-                          </div>
-                          <small>
-                              57% Executado
-                          </small>
-                      </td>
-                      <td class="project-state">
-                          <span class="badge badge-success">No prazo</span>
-                      </td>
-                      <td class="project-actions text-right">
-                          <a class="btn btn-primary btn-sm" href="#">
-                              <i class="fas fa-folder">
-                              </i>
-                              Ver
-                          </a>
-                          <a class="btn btn-info btn-sm" href="#">
-                              <i class="fas fa-pencil-alt">
-                              </i>
-                              Editar
-                          </a>
-                          <a class="btn btn-danger btn-sm" href="#">
-                              <i class="fas fa-trash">
-                              </i>
-                              Deletar
-                          </a>
-                      </td>
-                  </tr>
-
-                  <tr>
-                      <td>
-                          #
-                      </td>
-                      <td>
-                          <a>
-                              Condomínio Residencial Marítmo
-                          </a>
-                          <br/>
-                          <small>
-                              Criado 26-03-2020
-                          </small>
-                      </td>
-                      <td>
-                          <ul class="list-inline">
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="{% static 'dist/img/avatar.png' %}">
-                              </li>
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="{% static 'dist/img/avatar3.png' %}">
-                              </li>
-                          </ul>
-                      </td>
-                      <td class="project_progress">
-                          <div class="progress progress-sm">
-                              <div class="progress-bar bg-green" role="progressbar" aria-volumenow="99" aria-volumemin="0" aria-volumemax="100" style="width: 99%">
-                              </div>
-                          </div>
-                          <small>
-                              99% Executado
-                          </small>
-                      </td>
-                      <td class="project-state">
-                          <span class="badge badge-success">No prazo</span>
-                      </td>
-                      <td class="project-actions text-right">
-                          <a class="btn btn-primary btn-sm" href="#">
-                              <i class="fas fa-folder">
-                              </i>
-                              Ver
-                          </a>
-                          <a class="btn btn-info btn-sm" href="#">
-                              <i class="fas fa-pencil-alt">
-                              </i>
-                              Editar
-                          </a>
-                          <a class="btn btn-danger btn-sm" href="#">
-                              <i class="fas fa-trash">
-                              </i>
-                              Deletar
-                          </a>
-                      </td>
-                  </tr>
-
-                  <tr>
-                      <td>
-                          #
-                      </td>
-                      <td>
-                          <a>
-                              Posto de Combustível
-                          </a>
-                          <br/>
-                          <small>
-                              Criado 21-03-2020
-                          </small>
-                      </td>
-                      <td>
-                          <ul class="list-inline">
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="{% static 'dist/img/avatar.png' %}">
-                              </li>
-                          </ul>
-                      </td>
-                      <td class="project_progress">
-                          <div class="progress progress-sm">
-                              <div class="progress-bar bg-green" role="progressbar" aria-volumenow="73" aria-volumemin="0" aria-volumemax="100" style="width: 73%">
-                              </div>
-                          </div>
-                          <small>
-                              73% Executado
-                          </small>
-                      </td>
-                      <td class="project-state">
-                          <span class="badge badge-success">No prazo</span>
-                      </td>
-                      <td class="project-actions text-right">
-                          <a class="btn btn-primary btn-sm" href="#">
-                              <i class="fas fa-folder">
-                              </i>
-                              Ver
-                          </a>
-                          <a class="btn btn-info btn-sm" href="#">
-                              <i class="fas fa-pencil-alt">
-                              </i>
-                              Editar
-                          </a>
-                          <a class="btn btn-danger btn-sm" href="#">
-                              <i class="fas fa-trash">
-                              </i>
-                              Deletar
-                          </a>
-                      </td>
-                  </tr>
-
-                  <tr>
-                      <td>
-                          #
-                      </td>
-                      <td>
-                          <a>
-                              Complexo Comerial Camboriú
-                          </a>
-                          <br/>
-                          <small>
-                              Criado em 02-03-2020
-                          </small>
-                      </td>
-                      <td>
-                          <ul class="list-inline">
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="{% static 'dist/img/avatar2.png' %}">
-                              </li>
-                              <li class="list-inline-item">
-                                  <img alt="Avatar" class="table-avatar" src="{% static 'dist/img/avatar04.png' %}">
-                              </li>
-                          </ul>
-                      </td>
-                      <td class="project_progress">
-                          <div class="progress progress-sm">
-                              <div class="progress-bar bg-green" role="progressbar" aria-volumenow="67" aria-volumemin="0" aria-volumemax="100" style="width: 67%">
-                              </div>
-                          </div>
-                          <small>
-                              67% Executado
-                          </small>
-                      </td>
-                      <td class="project-state">
-                          <span class="badge badge-success">No prazo</span>
-                      </td>
-                      <td class="project-actions text-right">
-                          <a class="btn btn-primary btn-sm" href="#">
-                              <i class="fas fa-folder">
-                              </i>
-                              Ver
-                          </a>
-                          <a class="btn btn-info btn-sm" href="#">
-                              <i class="fas fa-pencil-alt">
-                              </i>
-                              Editar
-                          </a>
-                          <a class="btn btn-danger btn-sm" href="#">
-                              <i class="fas fa-trash">
-                              </i>
-                              Deletar
-                          </a>
-                      </td>
-                  </tr>
-
-              <!--Fim detalhes-->
-
-              </tbody>
-          </table>
-        </div>
-        <!-- /.card-body -->
-      </div>
-      <!-- /.card -->
-
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
       <b>Versão</b> 1.0
     </div>
-    <strong>&copy; 2020 <a href="{% static 'http://adminlte.io' %}">nc3e</a>.</strong>
+    <strong>&copy; 2020<a href="http://adminlte.io">nc3e</a>.</strong>
   </footer>
 
   <!-- Control Sidebar -->
