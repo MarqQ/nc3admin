@@ -15,24 +15,26 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-import nc3e.core.views
+
+from nc3e.core import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login', nc3e.core.views.login, name='login'),
-    path('', nc3e.core.views.index, name='index'),
-    path('clientes', nc3e.core.views.clientes, name='clientes'),
-    path('clientes-add', nc3e.core.views.clientesAdd, name='clientes'),
-    path('clientes-edit', nc3e.core.views.clientesEdit, name='clientes-add'),
-    path('fornecedores', nc3e.core.views.fornecedores, name='fornecedores-edit'),
-    path('fornecedores-add', nc3e.core.views.fornecedoresAdd, name='fornecedores-add'),
-    path('fornecedores-edit', nc3e.core.views.fornecedoresEdit, name='fornecedores-edit'),
-    path('obras', nc3e.core.views.obras, name='obras'),
-    path('obras-add', nc3e.core.views.obrasAdd, name='obras-add'),
-    path('obras-edit', nc3e.core.views.obrasEdit, name='obras-edit'),
-    path('usuarios', nc3e.core.views.usuarios, name='usuarios'),
-    path('usuarios-add', nc3e.core.views.usuariosAdd, name='usuarios-add'),
-    path('usuarios-edit', nc3e.core.views.usuariosEdit, name='usuarios'),
-    path('not-found', nc3e.core.views.notFound, name='not-found'),
-    path('server-error', nc3e.core.views.serverError, name='server-error'),
+    path('login', views.login, name='login'),
+    # path('', views.index, name='index'),
+    path('', views.home, name='home'),
+    path('clientes', views.clientes, name='clientes'),
+    path('clientes-add', views.clientesAdd, name='clientes-add'),
+    path('clientes-edit', views.clientesEdit, name='clientes-edit'),
+    path('fornecedores', views.fornecedores, name='fornecedores'),
+    path('fornecedores-add', views.fornecedoresAdd, name='fornecedores-add'),
+    path('fornecedores-edit', views.fornecedoresEdit, name='fornecedores-edit'),
+    path('obras', views.obras, name='obras'),
+    path('obras-add', views.obrasAdd, name='obras-add'),
+    path('obras-edit', views.obrasEdit, name='obras-edit'),
+    path('usuarios', views.usuarios, name='usuarios'),
+    path('usuarios-add', views.usuariosAdd, name='usuarios-add'),
+    path('usuarios-edit', views.usuariosEdit, name='usuarios-edit'),
+    path('not-found', views.notFound, name='not-found'),
+    path('server-error', views.serverError, name='server-error'),
 ]

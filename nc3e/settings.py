@@ -55,7 +55,9 @@ ROOT_URLCONF = 'nc3e.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'nc3e/core/templates'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
