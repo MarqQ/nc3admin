@@ -57,13 +57,9 @@ def usuariosEdit(request):
     return render(request, 'usuarios/usuarios-edit.html')
 
 
-def index2(request):
-    return render(request, 'index2.html')
+def notFound(request):
+    return render(request, '404.html')
 
 
-def index3(request):
-    return render(request, 'index3.html')
-
-
-def starter(request):
-    return render(request, 'starter.html')
+def serverError(request):
+    return render(request, '500.html')

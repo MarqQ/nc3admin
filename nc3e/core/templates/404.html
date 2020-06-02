@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>NC3E - Adicionar Fornecedor</title>
+  <title>AdminLTE 3 | 404 Page not found</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -27,14 +27,14 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{% url 'index' %}" class="nav-link">Início</a>
+        <a href="../../index3.html" class="nav-link">Início</a>
       </li>
     </ul>
 
     <!-- SEARCH FORM -->
     <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Buscar" aria-label="Buscar">
+        <input class="form-control form-control-navbar" type="search" placeholder="Buscar" aria-label="Search">
         <div class="input-group-append">
           <button class="btn btn-navbar" type="submit">
             <i class="fas fa-search"></i>
@@ -183,9 +183,9 @@
             </ul>
           </li>
 
-          <li class="nav-header">Menu Administador</li>
+      <li class="nav-header">Menu Administador</li>
           <li class="nav-item">
-            <a href="usuarios" class="nav-link">
+            <a href="{% static 'pages/calendar.html' %}" class="nav-link">
               <i class="nav-icon far fa-id-badge"></i>
               <p>
                 Usuários
@@ -193,7 +193,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="fornecedores" class="nav-link">
+            <a href="{% static 'pages/gallery.html' %}" class="nav-link">
               <i class="nav-icon fas fa-box-open"></i>
               <p>
                 Fornecedores
@@ -201,7 +201,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="clientes" class="nav-link">
+            <a href="{% static '#' %}" class="nav-link">
               <i class="nav-icon fas fa-user-friends"></i>
               <p>
                 Clientes
@@ -209,7 +209,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="obras" class="nav-link">
+            <a href="{% static '#' %}" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
                 Obras
@@ -230,12 +230,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Cadastro de Fornecedor</h1>
+            <h1>404 Error Page</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="{% url 'index' %}">Início</a></li>
-              <li class="breadcrumb-item active">Cadastro de Fornecedor</li>
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">404 Error Page</li>
             </ol>
           </div>
         </div>
@@ -244,166 +244,24 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-3">
+      <div class="error-page">
+        <h2 class="headline text-warning"> 404</h2>
 
-            <!-- Profile Image -->
-            <div class="card card-primary card-outline">
-              <div class="card-body box-profile">
-                <div class="text-center">
-                  <img class="profile-user-img img-fluid img-circle"
-                       src="{% static 'dist/img/boxed-bg.png' %}"
-                       alt="User profile picture">
-                </div>
+        <div class="error-content">
+          <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! Página não encontrada.</h3>
 
-                <h3 class="profile-username text-center">Nome Fantasia</h3>
+          <p>
+            Não encontramos a página que voce está procurando.
+            Enquanto isso, você pode <a href="../../index.html">retornar ao Dashboard</a> ou buscar no menu lateral.
+          </p>
 
-                <p class="text-muted text-center">Nome Jurídico</p>
-
-                <ul class="list-group list-group-unbordered mb-3">
-{#                  <li class="list-group-item">#}
-{#                    <b>Último acesso</b> <a class="float-right">--:--</a>#}
-{#                  </li>#}
-{#                  <li class="list-group-item">#}
-{#                    <b>Cargo</b> <a class="float-right">13,287</a>#}
-{#                  </li>#}
-                </ul>
-
-{#                <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>#}
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-
-            <!-- About Me Box -->
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Sobre</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-
-                <strong><i class="fas fa-map-marker-alt mr-1"></i> Localização</strong>
-
-                <p class="text-muted"></p>
-
-                <hr>
-
-                <strong><i class="far fa-file-alt mr-1"></i> Ramo de Atividade</strong>
-
-                <p class="text-muted"></p>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col -->
-          <div class="col-md-9">
-            <div class="card">
-              <div class="card-header p-2">
-                <ul class="nav nav-pills">
-                  <li class="nav-item"><a class="nav-link active" href="#settings" data-toggle="tab">Dados</a></li>
-                </ul>
-              </div><!-- /.card-header -->
-              <div class="card-body">
-                <div class="tab-content">
-                  <div class="active tab-pane" id="settings">
-                    <form class="form-horizontal">
-                      <div class="form-group row">
-                        <label for="inputName" class="col-sm-2 col-form-label">Nome Fantasia</label>
-                        <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputName" placeholder="Nome Fantasia">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputEmail" class="col-sm-2 col-form-label">Nome Jurídico</label>
-                        <div class="col-sm-10">
-                          <input type="email" class="form-control" id="inputEmail" placeholder="Nome Jurídico">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">Ramo de Atividade</label>
-                        <div class="col-sm-10">
-                          <select class="form-control custom-select">
-                              <option>Construção</option>
-                              <option>Elétrico</option>
-                              <option>Hidráulico</option>
-                            </select>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">CNPJ</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputSkills" placeholder="CNPJ">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">Telefone</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputSkills" placeholder="Telefone">
-                        </div>
-                      </div>
-                        <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">Email</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputSkills" placeholder="Email">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">Logradouro</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputName2" placeholder="Logradouro">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputName2" class="col-sm-2 col-form-label">Cidade</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputName2" placeholder="Cidade">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">Estado</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputSkills" placeholder="Estado">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">CEP</label>
-                        <div class="col-sm-10">
-                          <input type="text" class="form-control" id="inputSkills" placeholder="CEP">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">Horário de Funcionamento</label>
-                        <div class="col-sm-10">
-                          <textarea id="inputDescription" class="form-control" rows="4"></textarea>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">Observações</label>
-                        <div class="col-sm-10">
-                          <textarea id="inputDescription" class="form-control" rows="4"></textarea>
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <div class="offset-sm-2 col-sm-10">
-                          <button type="submit" class="btn btn-success">Salvar</button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                  <!-- /.tab-pane -->
-                </div>
-                <!-- /.tab-content -->
-              </div><!-- /.card-body -->
-            </div>
-            <!-- /.nav-tabs-custom -->
-          </div>
-          <!-- /.col -->
+          <form class="search-form">
+            <!-- /.input-group -->
+          </form>
         </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
+        <!-- /.error-content -->
+      </div>
+      <!-- /.error-page -->
     </section>
     <!-- /.content -->
   </div>
@@ -412,7 +270,7 @@
     <div class="float-right d-none d-sm-block">
       <b>Versão</b> 1.0
     </div>
-    <strong>&copy; 2020<a href="http://adminlte.io">nc3e</a>.</strong>
+    <strong>&copy; 2020 <a href="http://adminlte.io">nc3e</a>.</strong>
   </footer>
 
   <!-- Control Sidebar -->

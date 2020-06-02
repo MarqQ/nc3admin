@@ -11,27 +11,27 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="{% static 'https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css' %}">
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- icheck bootstrap -->
   <link rel="stylesheet" href="{% static 'plugins/icheck-bootstrap/icheck-bootstrap.min.css' %}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
   <!-- Google Font: Source Sans Pro -->
-  <link href="{% static 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700' %}" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>NC3E</b></a>
+    <a href=""><b>NC3E</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
     <div class="card-body login-card-body">
       <p class="login-box-msg">Use suas credenciais para logar</p>
 
-      <form action="../../index3.html" method="post">
+      <form action="submit" method="POST">{% csrf_token %}
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="email" id="email" class="form-control" placeholder="Email">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -39,7 +39,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Senha">
+          <input type="password" id="senha" class="form-control" placeholder="Senha">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -51,11 +51,8 @@
             <div class="icheck-primary">
               <input type="checkbox" id="remember">
                 <p class="mb-1">
-                    <a href="forgot-password.html">Esqueci minha senha</a>
+                    <a href="">Esqueci minha senha</a>
                 </p>
-{#              <label for="remember">#}
-{#                Remember Me#}
-{#              </label>#}
             </div>
           </div>
           <!-- /.col -->
@@ -65,22 +62,6 @@
           <!-- /.col -->
         </div>
       </form>
-
-{#      <div class="social-auth-links text-center mb-3">#}
-{#        <p>- OR -</p>#}
-{#        <a href="#" class="btn btn-block btn-primary">#}
-{#          <i class="fab fa-facebook mr-2"></i> Sign in using Facebook#}
-{#        </a>#}
-{#        <a href="#" class="btn btn-block btn-danger">#}
-{#          <i class="fab fa-google-plus mr-2"></i> Sign in using Google+#}
-{#        </a>#}
-{#      </div>#}
-      <!-- /.social-auth-links -->
-
-
-{#      <p class="mb-0">#}
-{#        <a href="register.html" class="text-center">Registrar um novo usuário</a>#}
-{#      </p>#}
     </div>
     <!-- /.login-card-body -->
   </div>

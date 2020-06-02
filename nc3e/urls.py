@@ -33,7 +33,6 @@ urlpatterns = [
     path('usuarios', nc3e.core.views.usuarios, name='usuarios'),
     path('usuarios-add', nc3e.core.views.usuariosAdd, name='usuarios-add'),
     path('usuarios-edit', nc3e.core.views.usuariosEdit, name='usuarios'),
-    path('index2', nc3e.core.views.index2, name='index2'),
-    path('index3', nc3e.core.views.index3, name='index3'),
-    path('starter', nc3e.core.views.starter, name='starter'),
+    path('not-found', nc3e.core.views.notFound, name='not-found'),
+    path('server-error', nc3e.core.views.serverError, name='server-error'),
 ]
