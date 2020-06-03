@@ -20,7 +20,9 @@ from nc3e.core import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('register', views.register, name='register'),
     path('login', views.login, name='login'),
+    path('logout', views.logout, name='logout'),
     path('', views.home, name='home'),
     path('clientes', views.clientes, name='clientes'),
     path('clientes-add', views.clientesAdd, name='clientes-add'),

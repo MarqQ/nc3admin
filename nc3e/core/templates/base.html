@@ -60,6 +60,15 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
+        {% if user.is_authenticated %}
+            <li class="form-inline ml-3">
+            <a class="btn btn-danger btn-sm" href="{% url 'logout' %}">
+                  Sair
+              </a>
+        </li>
+        {% else %}
+        {% endif %}
+
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="{% static '#' %}">
