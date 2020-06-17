@@ -5,23 +5,21 @@ from django.contrib.auth.models import User
 
 
 class Usuario(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     nome = models.CharField(max_length=100)
     email = models.EmailField()
     cpf = models.CharField(max_length=11)
     cnpj = models.CharField(max_length=14)
-    data_nascimento = models.DateField
+    data_nascimento = models.DateField(max_length=10)
     telefone = models.CharField(max_length=11)
     cep = models.CharField(max_length=8)
-    estado = models.CharField
+    estado = models.CharField(max_length=2)
     cidade = models.CharField(max_length=20)
     logradouro_completo = models.CharField(max_length=100)
     crea = models.CharField(max_length=100)
     perfil = models.CharField(max_length=100)
     funcao = models.CharField(max_length=100)
     senha = models.CharField(max_length=100)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    active = models.BooleanField(default=True)
-    begin_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return str(self.id)
@@ -64,7 +62,6 @@ class Fornecedor(models.Model):
     observacoes = models.TextField()
     logotipo = models.ImageField()
     criado_por = models.CharField(max_length=100)
-    user = models.ForeignKey(User)
     active = models.BooleanField(default=True)
     begin_date = models.DateTimeField(auto_now_add=True)
 

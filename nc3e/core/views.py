@@ -2,8 +2,12 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_protect
+from django.contrib import messages
+from django.contrib.auth import authenticate, login
 
 
+@csrf_protect
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']
