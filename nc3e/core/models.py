@@ -1,31 +1,101 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser, BaseUserManager
 
 # Create your models here.
 
 
-class Usuario(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    nome = models.CharField(max_length=100)
-    email = models.EmailField()
-    cpf = models.CharField(max_length=11)
-    cnpj = models.CharField(max_length=14)
-    data_nascimento = models.DateField(max_length=10)
-    telefone = models.CharField(max_length=11)
+class MyAccountManager(BaseUserManager):
+    def create_user(self, email, username, password=None):
+        if not email:
+            raise ValueError("O usuário deve conter um email")
+        if not username:
+            raise ValueError("o usuário deve conter um nome de usuário")
+
+        user = self.model(
+            email=self.normalize_email(email),
+            username=username,
+        )
+
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
+
+    def create_superuser(self, email, username, password):
+        user = self.create_user(
+            email=self.normalize_email(email),
+            password=password,
+            username=username,
+        )
+
+        user.is_admin = True
+        user.is_staff = True
+        user.is_superuser = True
+        user.save(using=self._db)
+        return user
+
+
+class Account(AbstractUser):
+    email = models.EmailField(verbose_name='email', max_length=60, unique=True)
+    username = models.CharField(max_length=30, unique=True)
+    data_nascimento = models.DateField(max_length=10, null=True, blank=True)
+    cpf = models.CharField(max_length=11, null=True, blank=True)
+    cnpj = models.CharField(max_length=14, null=True, blank=True)
+    telefone = models.CharField(max_length=11, null=True, blank=True)
     cep = models.CharField(max_length=8)
     estado = models.CharField(max_length=2)
     cidade = models.CharField(max_length=20)
     logradouro_completo = models.CharField(max_length=100)
-    crea = models.CharField(max_length=100)
+    crea = models.CharField(max_length=100, null=True, blank=True)
     perfil = models.CharField(max_length=100)
-    funcao = models.CharField(max_length=100)
-    senha = models.CharField(max_length=100)
+    funcao = models.CharField(max_length=100, null=True, blank=True)
+    date_joined = models.DateTimeField(verbose_name='data joined', auto_now_add=True)
+    last_login = models.DateTimeField(verbose_name='last login', auto_now=True)
+    is_admin = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
+    is_superuser = models.BooleanField(default=False)
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username']
+
+    objects = MyAccountManager()
 
     def __str__(self):
-        return str(self.id)
+        return self.email
+
+    def has_perm(self, perm, obj=None):
+        return self.is_admin
+
+    def has_module_perms(self, app_label):
+        return True
 
     class Meta:
         db_table = 'usuario'
+
+
+# class Usuario(models.Model):
+#     user = models.OneToOneField(User, on_delete=models.CASCADE)
+#     nome = models.CharField(max_length=100)
+#     email = models.EmailField()
+#     cpf = models.CharField(max_length=11, null=True, blank=True)
+#     cnpj = models.CharField(max_length=14, null=True, blank=True)
+#     data_nascimento = models.DateField(max_length=10, null=True, blank=True)
+#     telefone = models.CharField(max_length=11, null=True, blank=True)
+#     cep = models.CharField(max_length=8)
+#     estado = models.CharField(max_length=2)
+#     cidade = models.CharField(max_length=20)
+#     logradouro_completo = models.CharField(max_length=100)
+#     crea = models.CharField(max_length=100, null=True, blank=True)
+#     perfil = models.CharField(max_length=100)
+#     funcao = models.CharField(max_length=100, null=True, blank=True)
+#     senha = models.CharField(max_length=100, null=True, blank=True)
+#
+#     def __str__(self):
+#         return str(self.id)
+#
+#     class Meta:
+#         db_table = 'usuario'
 
 
 class Perfil(models.Model):
@@ -58,9 +128,9 @@ class Fornecedor(models.Model):
     cidade = models.CharField(max_length=100)
     estado = models.CharField(max_length=100)
     cep = models.CharField(max_length=100)
-    horario_funcionamento = models.TextField()
-    observacoes = models.TextField()
-    logotipo = models.ImageField()
+    horario_funcionamento = models.TextField(null=True, blank=True)
+    observacoes = models.TextField(null=True, blank=True)
+    logotipo = models.ImageField(null=True, blank=True)
     criado_por = models.CharField(max_length=100)
     active = models.BooleanField(default=True)
     begin_date = models.DateTimeField(auto_now_add=True)
@@ -112,7 +182,7 @@ class Cliente(models.Model):
     cidade = models.CharField(max_length=100)
     estado = models.CharField(max_length=100)
     cep = models.CharField(max_length=100)
-    observacoes = models.TextField()
+    observacoes = models.TextField(null=True, blank=True)
 
     def __str__(self):
         return str(self.id)

@@ -1,8 +1,4 @@
 from django.contrib import admin
-from .models import Usuario
+from .models import Account
 
-
-@admin.register(Usuario)
-class UsuarioAdmin(admin.ModelAdmin):
-    list_display = ['id', 'nome', 'email', 'cpf', 'cnpj', 'data_nascimento', 'telefone', 'cep', 'estado', 'cidade',
-                    'logradouro_completo', 'crea', 'perfil', 'funcao', 'senha']
+admin.site.register(Account)
