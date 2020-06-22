@@ -6,15 +6,28 @@ from django.contrib.auth.models import AbstractUser, BaseUserManager
 
 
 class MyAccountManager(BaseUserManager):
-    def create_user(self, email, username, password=None):
+    def create_user(self, first_name, last_name, email, cpf, cnpj, data_nascimento, telefone, cep, estado, cidade,
+                    logradouro_completo, crea, perfil, username, password=None):
         if not email:
             raise ValueError("O usuário deve conter um email")
         if not username:
             raise ValueError("o usuário deve conter um nome de usuário")
 
         user = self.model(
+            first_name=first_name,
+            last_name=last_name,
             email=self.normalize_email(email),
             username=username,
+            cpf=cpf,
+            cnpj=cnpj,
+            data_nascimento=data_nascimento,
+            telefone=telefone,
+            cep=cep,
+            estado=estado,
+            cidade=cidade,
+            logradouro_completo=logradouro_completo,
+            crea=crea,
+            perfil=perfil,
         )
 
         user.set_password(password)
@@ -35,9 +48,11 @@ class MyAccountManager(BaseUserManager):
         return user
 
 
-class Account(AbstractUser):
+class User(AbstractUser):
     email = models.EmailField(verbose_name='email', max_length=60, unique=True)
     username = models.CharField(max_length=30, unique=True)
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
     data_nascimento = models.DateField(max_length=10, null=True, blank=True)
     cpf = models.CharField(max_length=11, null=True, blank=True)
     cnpj = models.CharField(max_length=14, null=True, blank=True)

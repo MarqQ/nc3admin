@@ -70,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-AUTH_USER_MODEL = 'core.Account'
+AUTH_USER_MODEL = 'core.User'
 
 WSGI_APPLICATION = 'nc3e.wsgi.application'
 
