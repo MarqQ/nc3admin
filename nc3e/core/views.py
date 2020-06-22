@@ -5,6 +5,7 @@ from django.contrib.auth.models import User, auth
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
+from .models import User
 # from django.contrib.auth import authenticate, login
 
 
@@ -69,7 +70,7 @@ def register(request):
             print('As senhas não conferem!')
         return redirect('home')
     else:
-        return render(request, 'usuarios/usuarios-add.html')
+        return render(request, 'usuarios/usuarios.html')
 
 
 # @login_required(login_url='login')
@@ -77,7 +78,7 @@ def home(request):
     return render(request, 'home.html')
 
 
-# @login_required(login_url='login')
+@login_required(login_url='login')
 def clientes(request):
     return render(request, 'clientes/clientes.html')
 
@@ -124,7 +125,8 @@ def obrasEdit(request):
 
 # @login_required(login_url='login')
 def usuarios(request):
-    return render(request, 'usuarios/usuarios.html')
+    user = get_user_model().objects.filter()
+    return render(request, 'usuarios/usuarios.html', {'user': user})
 
 
 # @login_required(login_url='login')
