@@ -61,14 +61,14 @@
                         <!-- small box -->
                         <div class="small-box bg-warning">
                             <div class="inner">
-                                <h3>1</h3>
+                                <h3>{{ user.count }}</h3>
 
-                                <p>Usuários Ativos</p>
+                                <p>Usuários Cadastrados</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-person-add"></i>
                             </div>
-                            <a href="" class="small-box-footer">Mais Informações <i
+                            <a href="{% url 'usuarios' %}" class="small-box-footer">Mais Informações <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>

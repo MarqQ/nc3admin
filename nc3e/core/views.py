@@ -49,7 +49,7 @@ def register(request):
         cidade = request.POST['cidade']
         logradouro_completo = request.POST['logradouro_completo']
         crea = request.POST['crea']
-        perfil = request.POST['email']
+        perfil = request.POST['perfil']
         password1 = request.POST['password1']
         password2 = request.POST['password2']
 
@@ -75,7 +75,8 @@ def register(request):
 
 # @login_required(login_url='login')
 def home(request):
-    return render(request, 'home.html')
+    user = User.objects.filter()
+    return render(request, 'home.html', {'user': user})
 
 
 @login_required(login_url='login')
@@ -125,7 +126,7 @@ def obrasEdit(request):
 
 # @login_required(login_url='login')
 def usuarios(request):
-    user = get_user_model().objects.filter()
+    user = User.objects.filter()
     return render(request, 'usuarios/usuarios.html', {'user': user})
 
 
