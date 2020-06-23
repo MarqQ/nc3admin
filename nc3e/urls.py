@@ -34,6 +34,7 @@ urlpatterns = [
     path('obras-add', views.obrasAdd, name='obras-add'),
     path('obras-edit', views.obrasEdit, name='obras-edit'),
     path('usuarios', views.usuarios, name='usuarios'),
+    path('usuarios/<id>/', views.usuariosDelete, name='usuarios'),
     path('usuarios-add', views.usuariosAdd, name='usuarios-add'),
     path('usuarios-edit', views.usuariosEdit, name='usuarios-edit'),
     path('not-found', views.notFound, name='not-found'),

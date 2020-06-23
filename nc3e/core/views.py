@@ -141,6 +141,13 @@ def usuariosEdit(request):
 
 
 # @login_required(login_url='login')
+def usuariosDelete(request, id):
+    user = User.objects.get(id=id)
+    user.delete()
+    return redirect('usuarios')
+
+
+# @login_required(login_url='login')
 def notFound(request):
     return render(request, '404.html')
 
