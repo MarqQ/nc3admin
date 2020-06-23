@@ -15,6 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.views.generic import RedirectView
+from django.contrib.staticfiles.urls import static, staticfiles_urlpatterns
+from . import settings
 
 from nc3e.core import views
 
@@ -28,7 +31,9 @@ urlpatterns = [
     path('clientes-add', views.clientesAdd, name='clientes-add'),
     path('clientes-edit', views.clientesEdit, name='clientes-edit'),
     path('fornecedores', views.fornecedores, name='fornecedores'),
+    path('fornecedores-delete/<id>/', views.fornecedoresDelete, name='fornecedores-delete'),
     path('fornecedores-add', views.fornecedoresAdd, name='fornecedores-add'),
+    path('fornecedores-set', views.set_fornecedores, name='fornecedores-set'),
     path('fornecedores-edit', views.fornecedoresEdit, name='fornecedores-edit'),
     path('obras', views.obras, name='obras'),
     path('obras-add', views.obrasAdd, name='obras-add'),

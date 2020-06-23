@@ -69,6 +69,7 @@
 
                         <!--Início detalhes-->
 
+                        {% for f in fornecedor %}
                         <tr>
                             <td>
                                 #
@@ -83,7 +84,7 @@
                             </td>
                             <td>
                                 <a>
-                                    Eletro Luz
+                                    {{ f.nome_fantasia }}
                                 </a>
                                 <br/>
                                 <small>
@@ -92,166 +93,35 @@
                             </td>
                             <td>
                                 <a>
-                                    Elétrico
+                                    {{ f.ramo_desc }}
                                 </a>
                                 <br/>
                                 <small>
                                 </small>
                             </td>
+                            {% if f.active %}
                             <td class="project-state">
                                 <span class="badge badge-success">Ativo</span>
                             </td>
-                            <td class="project-actions text-right">
-                                <a class="btn btn-info btn-sm" href="{% url 'fornecedores-edit' %}">
-                                    <i class="fas fa-pencil-alt">
-                                    </i>
-                                    Editar
-                                </a>
-                                <a class="btn btn-danger btn-sm" href="">
-                                    <i class="fas fa-trash">
-                                    </i>
-                                    Deletar
-                                </a>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                #
-                            </td>
-                            <td>
-                                <ul class="list-inline">
-                                    <li class="list-inline-item">
-                                        <img alt="Avatar" class="table-avatar"
-                                             src="{% static 'dist/img/boxed-bg.jpg' %}">
-                                    </li>
-                                </ul>
-                            </td>
-                            <td>
-                                <a>
-                                    Hydra Tubos e encanamentos
-                                </a>
-                                <br/>
-                                <small>
-                                    {#                              Criado em 17-04-2020#}
-                                </small>
-                            </td>
-                            <td>
-                                <a>
-                                    Hidráulico
-                                </a>
-                                <br/>
-                                <small>
-                                </small>
-                            </td>
+                            {% else %}
                             <td class="project-state">
-                                <span class="badge badge-success">Ativo</span>
+                                <span class="badge badge-danger">Inativo</span>
                             </td>
+                            {% endif %}
                             <td class="project-actions text-right">
                                 <a class="btn btn-info btn-sm" href="{% url 'fornecedores-edit' %}">
                                     <i class="fas fa-pencil-alt">
                                     </i>
                                     Editar
                                 </a>
-                                <a class="btn btn-danger btn-sm" href="">
+                                <a class="btn btn-danger btn-sm" href="/fornecedores-delete/{{ f.id }}/">
                                     <i class="fas fa-trash">
                                     </i>
                                     Deletar
                                 </a>
                             </td>
                         </tr>
-
-                        <tr>
-                            <td>
-                                #
-                            </td>
-                            <td>
-                                <ul class="list-inline">
-                                    <li class="list-inline-item">
-                                        <img alt="Avatar" class="table-avatar"
-                                             src="{% static 'dist/img/boxed-bg.jpg' %}">
-                                    </li>
-                                </ul>
-                            </td>
-                            <td>
-                                <a>
-                                    O Armazém
-                                </a>
-                                <br/>
-                                <small>
-                                    {#                              Criado em 09-03-2020#}
-                                </small>
-                            </td>
-                            <td>
-                                <a>
-                                    Materiais de Construção
-                                </a>
-                                <br/>
-                                <small>
-                                </small>
-                            </td>
-                            <td class="project-state">
-                                <span class="badge badge-warning">Suspenso</span>
-                            </td>
-                            <td class="project-actions text-right">
-                                <a class="btn btn-info btn-sm" href="{% url 'fornecedores-edit' %}">
-                                    <i class="fas fa-pencil-alt">
-                                    </i>
-                                    Editar
-                                </a>
-                                <a class="btn btn-danger btn-sm" href="">
-                                    <i class="fas fa-trash">
-                                    </i>
-                                    Deletar
-                                </a>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                #
-                            </td>
-                            <td>
-                                <ul class="list-inline">
-                                    <li class="list-inline-item">
-                                        <img alt="Avatar" class="table-avatar"
-                                             src="{% static 'dist/img/boxed-bg.jpg' %}">
-                                    </li>
-                                </ul>
-                            </td>
-                            <td>
-                                <a>
-                                    Construsul
-                                </a>
-                                <br/>
-                                <small>
-                                    {#                              Criado em 22-04-2020#}
-                                </small>
-                            </td>
-                            <td>
-                                <a>
-                                    Materiais de Construção
-                                </a>
-                                <br/>
-                                <small>
-                                </small>
-                            </td>
-                            <td class="project-state">
-                                <span class="badge badge-danger">Bloqueado</span>
-                            </td>
-                            <td class="project-actions text-right">
-                                <a class="btn btn-info btn-sm" href="{% url 'fornecedores-edit' %}">
-                                    <i class="fas fa-pencil-alt">
-                                    </i>
-                                    Editar
-                                </a>
-                                <a class="btn btn-danger btn-sm" href="">
-                                    <i class="fas fa-trash">
-                                    </i>
-                                    Deletar
-                                </a>
-                            </td>
-                        </tr>
+                        {% endfor %}
 
                         <!--Fim detalhes-->
 

@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 from .models import User
+from .models import Fornecedor
 from django.contrib.auth import authenticate, login, logout
 
 
@@ -94,9 +95,34 @@ def clientesEdit(request):
     return render(request, 'clientes/clientes-edit.html')
 
 
+@csrf_protect
 # @login_required(login_url='login')
 def fornecedores(request):
-    return render(request, 'fornecedores/fornecedores.html')
+    fornecedor = Fornecedor.objects.filter()
+    return render(request, 'fornecedores/fornecedores.html', {'fornecedor': fornecedor})
+
+
+@csrf_protect
+# @login_required(login_url='login')
+def set_fornecedores(request):
+    nome_fantasia = request.POST.get('nome_fantasia')
+    nome_juridico = request.POST.get('nome_juridico')
+    cnpj = request.POST.get('cnpj')
+    ramo = request.POST.get('ramo')
+    endereco = request.POST.get('endereco')
+    cidade = request.POST.get('cidade')
+    estado = request.POST.get('estado')
+    cep = request.POST.get('cep')
+    horario_funcionamento = request.POST.get('horario_funcionamento')
+    observacoes = request.POST.get('observacoes')
+    logotipo = request.POST.get('logotipo')
+    usuario_cadastro = request.user.id
+    fornecedor = Fornecedor.objects.create(nome_fantasia=nome_fantasia, nome_empresa=nome_juridico, cnpj=cnpj,
+                                           ramo_desc=ramo, endereco=endereco, cidade=cidade, estado=estado, cep=cep,
+                                           horario_funcionamento=horario_funcionamento, observacoes=observacoes,
+                                           logotipo=logotipo, criado_por=usuario_cadastro)
+    fornecedor.save()
+    return redirect('fornecedores')
 
 
 # @login_required(login_url='login')
@@ -107,6 +133,13 @@ def fornecedoresAdd(request):
 # @login_required(login_url='login')
 def fornecedoresEdit(request):
     return render(request, 'fornecedores/fornecedores-edit.html')
+
+
+# @login_required(login_url='login')
+def fornecedoresDelete(request, id):
+    fornecedor = Fornecedor.objects.get(id=id)
+    fornecedor.delete()
+    return redirect('fornecedores')
 
 
 # @login_required(login_url='login')
