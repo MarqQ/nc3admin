@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect
-# from django.contrib import messages
+from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User, auth
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 from .models import User
-# from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 
 @csrf_protect
@@ -65,12 +65,12 @@ def register(request):
                                                             crea=crea, password=password1, email=email)
                 user.save()
                 print('Usuário criado com sucesso!')
-                return redirect('usuarios/usuarios.html')
+                return redirect('usuarios')
         else:
             print('As senhas não conferem!')
         return redirect('home')
     else:
-        return render(request, 'usuarios/usuarios.html')
+        return redirect('usuarios')
 
 
 # @login_required(login_url='login')
@@ -136,14 +136,18 @@ def usuariosAdd(request):
 
 
 # @login_required(login_url='login')
-def usuariosEdit(request):
+def usuariosEdit(request, id):
+    usuario_id = request.GET.get('id')
+    if usuario_id:
+        user = User.objects.get(id=id)
+        return render(request, 'usuarios/usuarios-edit.html', {'user': user})
     return render(request, 'usuarios/usuarios-edit.html')
 
 
 # @login_required(login_url='login')
 def usuariosDelete(request, id):
-    user = User.objects.get(id=id)
-    user.delete()
+    usuario = get_user_model().objects.get(id=id)
+    usuario.delete()
     return redirect('usuarios')
 
 
