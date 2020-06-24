@@ -79,7 +79,10 @@ def register(request):
 # @login_required(login_url='login')
 def home(request):
     user = User.objects.filter()
-    return render(request, 'home.html', {'user': user})
+    fornecedor = Fornecedor.objects.filter()
+    cliente = Cliente.objects.filter()
+    obra = Obra.objects.filter()
+    return render(request, 'home.html', {'user': user, 'fornecedor': fornecedor, 'cliente': cliente, 'obra': obra})
 
 
 @csrf_protect

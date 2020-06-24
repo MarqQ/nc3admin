@@ -29,14 +29,14 @@
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>0</h3>
+                                <h3>{{ fornecedor.count }}</h3>
 
-                                <p>Novos Projetos</p>
+                                <p>Fornecedores Cadastrados</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-bag"></i>
                             </div>
-                            <a href="" class="small-box-footer">Mais Informações <i
+                            <a href="{% url 'fornecedores' %}" class="small-box-footer">Mais Informações <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
@@ -45,14 +45,14 @@
                         <!-- small box -->
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3>0<sup style="font-size: 20px">%</sup></h3>
+                                <h3>{{ cliente.count }}<sup style="font-size: 20px"></sup></h3>
 
-                                <p>Projetos em andamento</p>
+                                <p>Clientes Cadastrados</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
                             </div>
-                            <a href="" class="small-box-footer">Mais Informações <i
+                            <a href="{% url 'clientes' %}" class="small-box-footer">Mais Informações <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
@@ -77,14 +77,14 @@
                         <!-- small box -->
                         <div class="small-box bg-danger">
                             <div class="inner">
-                                <h3>0</h3>
+                                <h3>{{ obra.count }}</h3>
 
-                                <p>Projetos Ativos</p>
+                                <p>Obras Cadastradas</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-pie-graph"></i>
                             </div>
-                            <a href="" class="small-box-footer">Mais Informações <i
+                            <a href="{% url 'obras' %}" class="small-box-footer">Mais Informações <i
                                     class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>

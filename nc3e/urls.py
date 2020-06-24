@@ -26,26 +26,32 @@ urlpatterns = [
     path('register', views.register, name='register'),
     path('login', views.login, name='login'),
     path('logout', views.logout, name='logout'),
+
     path('', views.home, name='home'),
+
     path('clientes', views.clientes, name='clientes'),
-    path('clientes-delete/<id>/', views.clientesDelete, name='clientes-delete'),
     path('clientes-add', views.clientesAdd, name='clientes-add'),
     path('clientes-set', views.set_clientes, name='clientes-set'),
     path('clientes-edit', views.clientesEdit, name='clientes-edit'),
+    path('clientes-delete/<id>/', views.clientesDelete, name='clientes-delete'),
+
     path('fornecedores', views.fornecedores, name='fornecedores'),
-    path('fornecedores-delete/<id>/', views.fornecedoresDelete, name='fornecedores-delete'),
     path('fornecedores-add', views.fornecedoresAdd, name='fornecedores-add'),
     path('fornecedores-set', views.set_fornecedores, name='fornecedores-set'),
     path('fornecedores-edit', views.fornecedoresEdit, name='fornecedores-edit'),
+    path('fornecedores-delete/<id>/', views.fornecedoresDelete, name='fornecedores-delete'),
+
     path('obras', views.obras, name='obras'),
-    path('obras-delete/<id>/', views.obrasDelete, name='obras-delete'),
     path('obras-add', views.obrasAdd, name='obras-add'),
     path('obras-set', views.set_obras, name='obras-set'),
     path('obras-edit', views.obrasEdit, name='obras-edit'),
+    path('obras-delete/<id>/', views.obrasDelete, name='obras-delete'),
+
     path('usuarios', views.usuarios, name='usuarios'),
-    path('usuarios-delete/<id>/', views.usuariosDelete, name='usuarios-delete'),
     path('usuarios-add', views.usuariosAdd, name='usuarios-add'),
     path('usuarios-edit/<int:id>/', views.usuariosEdit, name='usuarios-edit'),
+    path('usuarios-delete/<id>/', views.usuariosDelete, name='usuarios-delete'),
+
     path('not-found', views.notFound, name='not-found'),
     path('server-error', views.serverError, name='server-error'),
 ]
