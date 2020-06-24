@@ -7,6 +7,7 @@ from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 from .models import User
 from .models import Fornecedor
+from .models import Cliente
 from django.contrib.auth import authenticate, login, logout
 
 
@@ -80,9 +81,28 @@ def home(request):
     return render(request, 'home.html', {'user': user})
 
 
+@csrf_protect
 @login_required(login_url='login')
 def clientes(request):
-    return render(request, 'clientes/clientes.html')
+    cliente = Cliente.objects.filter()
+    return render(request, 'clientes/clientes.html', {'cliente': cliente})
+
+
+@csrf_protect
+def set_clientes(request):
+    nome = request.POST.get('nome')
+    segmento = request.POST.get('segmento')
+    doc = request.POST.get('doc')
+    endereco = request.POST.get('endereco')
+    cidade = request.POST.get('cidade')
+    estado = request.POST.get('estado')
+    cep = request.POST.get('cep')
+    observacoes = request.POST.get('observacoes')
+    fornecedor_cadastro = request.user.id
+    cliente = Cliente.objects.create(nome=nome, segmento=segmento, doc=doc, endereco=endereco, cidade=cidade,
+                                     estado=estado, cep=cep, observacoes=observacoes, criado_por=fornecedor_cadastro)
+    cliente.save()
+    return redirect('clientes')
 
 
 # @login_required(login_url='login')
@@ -93,6 +113,13 @@ def clientesAdd(request):
 # @login_required(login_url='login')
 def clientesEdit(request):
     return render(request, 'clientes/clientes-edit.html')
+
+
+# @login_required(login_url='login')
+def clientesDelete(request, id):
+    cliente = Cliente.objects.get(id=id)
+    cliente.delete()
+    return redirect('clientes')
 
 
 @csrf_protect
