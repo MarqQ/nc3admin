@@ -8,6 +8,7 @@ from django.contrib import messages
 from .models import User
 from .models import Fornecedor
 from .models import Cliente
+from .models import Obra
 from django.contrib.auth import authenticate, login, logout
 
 
@@ -171,7 +172,29 @@ def fornecedoresDelete(request, id):
 
 # @login_required(login_url='login')
 def obras(request):
-    return render(request, 'obras/obras.html')
+    obra = Obra.objects.filter()
+    return render(request, 'obras/obras.html', {'obra': obra})
+
+
+# @login_required(login_url='login')
+def set_obras(request):
+    nome = request.POST.get('nome')
+    email = request.POST.get('email')
+    cnpj = request.POST.get('cnpj')
+    data_inicio = request.POST.get('data_inicio')
+    data_termino = request.POST.get('data_termino')
+    endereco = request.POST.get('endereco')
+    cidade = request.POST.get('cidade')
+    estado = request.POST.get('estado')
+    cep = request.POST.get('cep')
+    cno = request.POST.get('cno')
+    site = request.POST.get('site')
+    usuario_cadastro = request.user.id
+    obra = Obra.objects.create(nome=nome, email=email, cnpj=cnpj, data_inicio=data_inicio, data_termino=data_termino,
+                               endereco=endereco, cidade=cidade, estado=estado, cep=cep, cno=cno, site=site,
+                               criado_por=usuario_cadastro)
+    obra.save()
+    return redirect('obras')
 
 
 # @login_required(login_url='login')
@@ -182,6 +205,13 @@ def obrasAdd(request):
 # @login_required(login_url='login')
 def obrasEdit(request):
     return render(request, 'obras/obras-edit.html')
+
+
+# @login_required(login_url='login')
+def obrasDelete(request, id):
+    obra = Obra.objects.get(id=id)
+    obra.delete()
+    return redirect('obras')
 
 
 # @login_required(login_url='login')

@@ -21,145 +21,151 @@
         </section>
 
         <!-- Main content -->
+
         <section class="content">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            <h3 class="card-title">Geral</h3>
+            <form method="POST" action="obras-set" class="form-horizontal">
+            {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Geral</h3>
 
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"
-                                        data-toggle="tooltip" title="Collapse">
-                                    <i class="fas fa-minus"></i></button>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label for="inputName">Nome do Projeto</label>
-                                <input type="text" id="inputName" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="inputName">E-mail</label>
-                                <input type="email" id="email" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="inputName">CNPJ</label>
-                                <input type="text" id="cnpj" class="form-control">
-                            </div>
-                            {#              <div class="form-group">#}
-                            {#                <label for="inputDescription">Project Description</label>#}
-                            {#                <textarea id="inputDescription" class="form-control" rows="4"></textarea>#}
-                            {#              </div>#}
-                            <div class="form-group">
-                                <label for="inputStatus">Cliente Responsável</label>
-                                <select class="form-control custom-select">
-                                    <option selected disabled>Selecione</option>
-                                    <option>Ricardo Silva</option>
-                                    <option>Joaquim Figueiredo</option>
-                                    <option>Pamela Duarte</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputStatus">Engenheiro Responsável</label>
-                                <select class="form-control custom-select">
-                                    <option selected disabled>Selecione</option>
-                                    <option>Ricardo Silva</option>
-                                    <option>Joaquim Figueiredo</option>
-                                    <option>Pamela Duarte</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputStatus">Fornecedores</label>
-                                <select class="form-control custom-select">
-                                    <option selected disabled>Selecione</option>
-                                    <option>Eletro Luz</option>
-                                    <option>Hydra Tubos e Encanamentos</option>
-                                    <option>Conecta Encanamentos</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputClientCompany">Data de Início</label>
-                                <input type="date" id="inputStartDate" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="inputProjectLeader">Data de Término</label>
-                                <input type="date" id="inputFinishDate" class="form-control">
-                            </div>
-                        </div>
-                        <!-- /.card-body -->
-                    </div>
-                    <!-- /.card -->
-                </div>
-                <div class="col-md-6">
-                    <div class="card card-secondary">
-                        <div class="card-header">
-                            <h3 class="card-title">Detalhes</h3>
-
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"
-                                        data-toggle="tooltip" title="Collapse">
-                                    <i class="fas fa-minus"></i></button>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label for="">Dias úteis de trabalho</label>
-                                {#                <input type="number" id="" class="form-control">#}
-                                <div class="weekDays-selector">
-                                    <input type="checkbox" id="domingo" class="weekday"/>
-                                    <label for="weekday-mon">D</label>
-                                    <input type="checkbox" id="segunda" class="weekday"/>
-                                    <label for="weekday-tue">S</label>
-                                    <input type="checkbox" id="terca" class="weekday"/>
-                                    <label for="weekday-wed">T</label>
-                                    <input type="checkbox" id="quarta" class="weekday"/>
-                                    <label for="weekday-thu">Q</label>
-                                    <input type="checkbox" id="quinta" class="weekday"/>
-                                    <label for="weekday-fri">Q</label>
-                                    <input type="checkbox" id="sexta" class="weekday"/>
-                                    <label for="weekday-sat">S</label>
-                                    <input type="checkbox" id="sábado" class="weekday"/>
-                                    <label for="weekday-sun">S</label>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"
+                                            data-toggle="tooltip" title="Collapse">
+                                        <i class="fas fa-minus"></i></button>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="InputAddress">Endereço</label>
-                                <input type="text" id="InputAddress" class="form-control">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="nome">Nome do Projeto</label>
+                                    <input type="text" name="nome" id="nome" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">E-mail</label>
+                                    <input type="email" name="email" id="email" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cnpj">CNPJ</label>
+                                    <input type="text" name="cnpj" id="cnpj" class="form-control">
+                                </div>
+                                {#              <div class="form-group">#}
+                                {#                <label for="inputDescription">Project Description</label>#}
+                                {#                <textarea id="inputDescription" class="form-control" rows="4"></textarea>#}
+                                {#              </div>#}
+                                <div class="form-group">
+                                    <label for="inputStatus">Cliente Responsável</label>
+                                    <select class="form-control custom-select">
+                                        <option selected disabled>Selecione</option>
+                                        <option>Ricardo Silva</option>
+                                        <option>Joaquim Figueiredo</option>
+                                        <option>Pamela Duarte</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputStatus">Engenheiro Responsável</label>
+                                    <select class="form-control custom-select">
+                                        <option selected disabled>Selecione</option>
+                                        <option>Ricardo Silva</option>
+                                        <option>Joaquim Figueiredo</option>
+                                        <option>Pamela Duarte</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputStatus">Fornecedores</label>
+                                    <select class="form-control custom-select">
+                                        <option selected disabled>Selecione</option>
+                                        <option>Eletro Luz</option>
+                                        <option>Hydra Tubos e Encanamentos</option>
+                                        <option>Conecta Encanamentos</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="data_inicio">Data de Início</label>
+                                    <input type="date" name="data_inicio" id="data_inicio" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="data_termino">Data de Término</label>
+                                    <input type="date" name="data_termino" id="data_termino" class="form-control">
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="InputCity">Cidade</label>
-                                <input type="text" id="InputCity" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="InputState">Estado</label>
-                                <input type="text" id="InputState" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="InputCep">CEP</label>
-                                <input type="text" id="InputCep" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="InputCno">CNO</label>
-                                <input type="text" id="InputCno" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="InputSite">Site</label>
-                                <input type="text" id="InputSite" class="form-control">
-                            </div>
+                            <!-- /.card-body -->
                         </div>
-                        <!-- /.card-body -->
+                        <!-- /.card -->
                     </div>
-                    <!-- /.card -->
+                    <div class="col-md-6">
+                        <div class="card card-secondary">
+                            <div class="card-header">
+                                <h3 class="card-title">Detalhes</h3>
+
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"
+                                            data-toggle="tooltip" title="Collapse">
+                                        <i class="fas fa-minus"></i></button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="">Dias úteis de trabalho</label>
+                                    {#                <input type="number" id="" class="form-control">#}
+                                    <div class="weekDays-selector">
+                                        <input type="checkbox" id="domingo" class="weekday"/>
+                                        <label for="weekday-mon">D</label>
+                                        <input type="checkbox" id="segunda" class="weekday"/>
+                                        <label for="weekday-tue">S</label>
+                                        <input type="checkbox" id="terca" class="weekday"/>
+                                        <label for="weekday-wed">T</label>
+                                        <input type="checkbox" id="quarta" class="weekday"/>
+                                        <label for="weekday-thu">Q</label>
+                                        <input type="checkbox" id="quinta" class="weekday"/>
+                                        <label for="weekday-fri">Q</label>
+                                        <input type="checkbox" id="sexta" class="weekday"/>
+                                        <label for="weekday-sat">S</label>
+                                        <input type="checkbox" id="sábado" class="weekday"/>
+                                        <label for="weekday-sun">S</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="endereco">Endereço</label>
+                                    <input type="text" name="endereco" id="endereco" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cidade">Cidade</label>
+                                    <input type="text" name="cidade" id="cidade" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="estado">Estado</label>
+                                    <input type="text" name="estado" id="estado" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cep">CEP</label>
+                                    <input type="text" name="cep" id="cep" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cno">CNO</label>
+                                    <input type="text" name="cno" id="cno" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="site">Site</label>
+                                    <input type="text" name="site" id="site" class="form-control">
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
                 </div>
-            </div>
-            <div class="row pb-3">
-                <div class="col-12">
-                    <a href="#" class="btn btn-secondary">Cancelar</a>
-                    <input type="submit" value="Salvar" class="btn btn-success float-right">
+                <div class="row pb-3">
+                    <div class="col-12">
+                        <a href="#" class="btn btn-secondary">Cancelar</a>
+                        <input type="submit" value="Salvar" class="btn btn-success float-right">
+                    </div>
                 </div>
-            </div>
+            </form>
+
         </section>
+
         <!-- /.content -->
     </div>
 {% endblock content %}

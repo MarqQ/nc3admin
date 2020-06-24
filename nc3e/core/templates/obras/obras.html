@@ -69,185 +69,18 @@
 
                         <!--Início detalhes-->
 
+                        {% for o in obra %}
                         <tr>
                             <td>
                                 #
                             </td>
                             <td>
                                 <a>
-                                    Condomínio do Sol
+                                    {{ o.nome }}
                                 </a>
                                 <br/>
                                 <small>
-                                    Criado em 04-04-2020
-                                </small>
-                            </td>
-                            {#                      <td>#}
-                            {#                          <ul class="list-inline">#}
-                            {#                              <li class="list-inline-item">#}
-                            {#                                  <img alt="Avatar" class="table-avatar" src="{% static 'dist/img/avatar.png' %}">#}
-                            {#                              </li>#}
-                            {#                              <li class="list-inline-item">#}
-                            {#                                  <img alt="Avatar" class="table-avatar" src="{% static 'dist/img/avatar2.png' %}">#}
-                            {#                              </li>#}
-                            {#                              <li class="list-inline-item">#}
-                            {#                                  <img alt="Avatar" class="table-avatar" src="{% static 'dist/img/avatar3.png' %}">#}
-                            {#                              </li>#}
-                            {#                              <li class="list-inline-item">#}
-                            {#                                  <img alt="Avatar" class="table-avatar" src="{% static 'dist/img/avatar04.png' %}">#}
-                            {#                              </li>#}
-                            {#                          </ul>#}
-                            {#                      </td>#}
-                            <td class="project_progress">
-                                <div class="progress progress-sm">
-                                    <div class="progress-bar bg-green" role="progressbar" aria-volumenow="57"
-                                         aria-volumemin="0" aria-volumemax="100" style="width: 57%">
-                                    </div>
-                                </div>
-                                <small>
-                                    57% Executado
-                                </small>
-                            </td>
-                            <td class="project-state">
-                                <span class="badge badge-warning">Em atraso</span>
-                            </td>
-                            <td class="project-actions text-right">
-                                {#                          <a class="btn btn-primary btn-sm" href="#">#}
-                                {#                              <i class="fas fa-folder">#}
-                                {#                              </i>#}
-                                {#                              Ver#}
-                                {#                          </a>#}
-                                <a class="btn btn-info btn-sm" href="{% url 'obras-edit' %}">
-                                    <i class="fas fa-pencil-alt">
-                                    </i>
-                                    Editar
-                                </a>
-                                <a class="btn btn-danger btn-sm" href="#">
-                                    <i class="fas fa-trash">
-                                    </i>
-                                    Deletar
-                                </a>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                #
-                            </td>
-                            <td>
-                                <a>
-                                    Condomínio Residencial Marítmo
-                                </a>
-                                <br/>
-                                <small>
-                                    Criado 26-03-2020
-                                </small>
-                            </td>
-                            {#                      <td>#}
-                            {#                          <ul class="list-inline">#}
-                            {#                              <li class="list-inline-item">#}
-                            {#                                  <img alt="Avatar" class="table-avatar" src="{% static 'dist/img/avatar.png' %}">#}
-                            {#                              </li>#}
-                            {#                              <li class="list-inline-item">#}
-                            {#                                  <img alt="Avatar" class="table-avatar" src="{% static 'dist/img/avatar3.png' %}">#}
-                            {#                              </li>#}
-                            {#                          </ul>#}
-                            {#                      </td>#}
-                            <td class="project_progress">
-                                <div class="progress progress-sm">
-                                    <div class="progress-bar bg-green" role="progressbar" aria-volumenow="99"
-                                         aria-volumemin="0" aria-volumemax="100" style="width: 99%">
-                                    </div>
-                                </div>
-                                <small>
-                                    99% Executado
-                                </small>
-                            </td>
-                            <td class="project-state">
-                                <span class="badge badge-success">No prazo</span>
-                            </td>
-                            <td class="project-actions text-right">
-                                {#                          <a class="btn btn-primary btn-sm" href="#">#}
-                                {#                              <i class="fas fa-folder">#}
-                                {#                              </i>#}
-                                {#                              Ver#}
-                                {#                          </a>#}
-                                <a class="btn btn-info btn-sm" href="{% url 'obras-edit' %}">
-                                    <i class="fas fa-pencil-alt">
-                                    </i>
-                                    Editar
-                                </a>
-                                <a class="btn btn-danger btn-sm" href="#">
-                                    <i class="fas fa-trash">
-                                    </i>
-                                    Deletar
-                                </a>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                #
-                            </td>
-                            <td>
-                                <a>
-                                    Posto de Combustível
-                                </a>
-                                <br/>
-                                <small>
-                                    Criado 21-03-2020
-                                </small>
-                            </td>
-                            {#                      <td>#}
-                            {#                          <ul class="list-inline">#}
-                            {#                              <li class="list-inline-item">#}
-                            {#                                  <img alt="Avatar" class="table-avatar" src="{% static 'dist/img/avatar.png' %}">#}
-                            {#                              </li>#}
-                            {#                          </ul>#}
-                            {#                      </td>#}
-                            <td class="project_progress">
-                                <div class="progress progress-sm">
-                                    <div class="progress-bar bg-green" role="progressbar" aria-volumenow="73"
-                                         aria-volumemin="0" aria-volumemax="100" style="width: 73%">
-                                    </div>
-                                </div>
-                                <small>
-                                    73% Executado
-                                </small>
-                            </td>
-                            <td class="project-state">
-                                <span class="badge badge-success">No prazo</span>
-                            </td>
-                            <td class="project-actions text-right">
-                                {#                          <a class="btn btn-primary btn-sm" href="#">#}
-                                {#                              <i class="fas fa-folder">#}
-                                {#                              </i>#}
-                                {#                              Ver#}
-                                {#                          </a>#}
-                                <a class="btn btn-info btn-sm" href="{% url 'obras-edit' %}">
-                                    <i class="fas fa-pencil-alt">
-                                    </i>
-                                    Editar
-                                </a>
-                                <a class="btn btn-danger btn-sm" href="#">
-                                    <i class="fas fa-trash">
-                                    </i>
-                                    Deletar
-                                </a>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                #
-                            </td>
-                            <td>
-                                <a>
-                                    Complexo Comerial Camboriú
-                                </a>
-                                <br/>
-                                <small>
-                                    Criado em 02-03-2020
+                                    Iniciado em {{ o.data_inicio }}
                                 </small>
                             </td>
                             {#                      <td>#}
@@ -262,17 +95,23 @@
                             {#                      </td>#}
                             <td class="project_progress">
                                 <div class="progress progress-sm">
-                                    <div class="progress-bar bg-green" role="progressbar" aria-volumenow="67"
-                                         aria-volumemin="0" aria-volumemax="100" style="width: 67%">
+                                    <div class="progress-bar bg-green" role="progressbar" aria-volumenow="1"
+                                         aria-volumemin="0" aria-volumemax="100" style="width: 1%">
                                     </div>
                                 </div>
                                 <small>
-                                    67% Executado
+                                    1% Executado
                                 </small>
                             </td>
+                            {% if o.data_inicio %}
                             <td class="project-state">
-                                <span class="badge badge-success">No prazo</span>
+                                <span class="badge badge-success">No Prazo</span>
                             </td>
+                            {% else %}
+                            <td class="project-state">
+                                <span class="badge badge-danger">Atrasado</span>
+                            </td>
+                            {% endif %}
                             <td class="project-actions text-right">
                                 {#                          <a class="btn btn-primary btn-sm" href="#">#}
                                 {#                              <i class="fas fa-folder">#}
@@ -284,13 +123,14 @@
                                     </i>
                                     Editar
                                 </a>
-                                <a class="btn btn-danger btn-sm" href="#">
+                                <a class="btn btn-danger btn-sm" href="/obras-delete/{{ o.id }}/">
                                     <i class="fas fa-trash">
                                     </i>
                                     Deletar
                                 </a>
                             </td>
                         </tr>
+                        {% endfor %}
 
                         <!--Fim detalhes-->
 

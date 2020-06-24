@@ -246,6 +246,7 @@ class Obra(models.Model):
     cep = models.CharField(max_length=8)
     cno = models.CharField(max_length=100)
     site = models.CharField(max_length=100)
+    criado_por = models.CharField(max_length=100)
 
     def __str__(self):
         return str(self.id)
