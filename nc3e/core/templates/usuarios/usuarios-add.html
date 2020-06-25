@@ -80,7 +80,7 @@
                             <div class="card-body">
                                 <div class="tab-content">
                                     <div class="active tab-pane" id="settings">
-                                        <form method="POST" action="register" class="form-horizontal">
+                                        <form method="POST" action="{% url 'register' %}" class="form-horizontal">
                                             {% csrf_token %}
 {#                                            <div class="form-group row">#}
 {#                                                <label for="inputName2" class="col-sm-2 col-form-label">Perfil</label>#}
