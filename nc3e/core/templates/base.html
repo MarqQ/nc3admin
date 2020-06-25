@@ -73,7 +73,8 @@
 
             <!-- Messages Dropdown Menu -->
             <li class="nav-item dropdown">
-                <a class="nav-link" data-toggle="dropdown" href="{% static '#' %}">
+{#                <a class="nav-link" data-toggle="dropdown" href="">#}
+                <a class="nav-link" data-toggle="" href="">
                     <i class="far fa-comments"></i>
                     <span class="badge badge-danger navbar-badge">35</span>
                 </a>
@@ -129,12 +130,13 @@
                         <!-- Message End -->
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a href="{% static '#' %}" class="dropdown-item dropdown-footer">Ver Mensagens</a>
+                    <a href="" class="dropdown-item dropdown-footer">Ver Mensagens</a>
                 </div>
             </li>
             <!-- Notifications Dropdown Menu -->
             <li class="nav-item dropdown">
-                <a class="nav-link" data-toggle="dropdown" href="{% static '#' %}">
+{#                <a class="nav-link" data-toggle="dropdown" href="">#}
+                <a class="nav-link" data-toggle="" href="">
                     <i class="far fa-bell"></i>
                     <span class="badge badge-warning navbar-badge">55</span>
                 </a>
@@ -190,7 +192,7 @@
                          alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="usuarios/usuarios-edit.html" class="d-block">{{ request.user.first_name }}</a>
+                    <a href="/usuarios-edit/{{ request.user.id }}/" class="d-block">{{ request.user.first_name }}</a>
                 </div>
             </div>
 
@@ -311,5 +313,7 @@
 <script src="{% static 'dist/js/pages/dashboard.js' %}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{% static 'dist/js/demo.js' %}"></script>
+<!-- Custom JS -->
+<script src="{% static 'custom/base.js' %}"></script>
 </body>
 </html>

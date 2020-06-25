@@ -80,14 +80,14 @@
                             <div class="card-body">
                                 <div class="tab-content">
                                     <div class="active tab-pane" id="settings">
-                                        <form method="POST" action="fornecedores-set" class="form-horizontal">
+                                        <form method="POST" action="fornecedores-set" class="form-horizontal needs-validation">
                                             {% csrf_token %}
                                             <div class="form-group row">
                                                 <label for="nome_fantasia" class="col-sm-2 col-form-label">Nome
                                                     Fantasia</label>
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" name="nome_fantasia" id="nome_fantasia"
-                                                           placeholder="Nome Fantasia">
+                                                           placeholder="Nome Fantasia" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -95,7 +95,7 @@
                                                     Jurídico</label>
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" name="nome_juridico" id="nome_juridico"
-                                                           placeholder="Nome Jurídico">
+                                                           placeholder="Nome Jurídico" required>
                                                 </div>
                                             </div>
 {#                                            <div class="form-group row">#}
@@ -111,9 +111,9 @@
 {#                                            </div>#}
                                             <div class="form-group row">
                                                 <label for="cnpj" class="col-sm-2 col-form-label">CNPJ</label>
-                                                <div class="col-sm-10">
+                                                <div class="col-sm-10" required>
                                                     <input type="text" class="form-control" name="cnpj" id="cnpj"
-                                                           placeholder="CNPJ">
+                                                           placeholder="CNPJ" maxlength="14" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -129,28 +129,28 @@
                                                        class="col-sm-2 col-form-label">Endereço</label>
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" name="endereco" id="endereco"
-                                                           placeholder="Endereço">
+                                                           placeholder="Endereço" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="cidade" class="col-sm-2 col-form-label">Cidade</label>
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" name="cidade" id="cidade"
-                                                           placeholder="Cidade">
+                                                           placeholder="Cidade" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="estado" class="col-sm-2 col-form-label">Estado</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" name="estado" id="estado"
-                                                           placeholder="Estado">
+                                                    <input type="text" class="form-control text-uppercase" name="estado" id="estado"
+                                                           placeholder="UF" maxlength="2" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="cep" class="col-sm-2 col-form-label">CEP</label>
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" name="cep" id="cep"
-                                                           placeholder="CEP">
+                                                           placeholder="CEP" maxlength="8">
                                                 </div>
                                             </div>
 {#                                            <div class="form-group row">#}

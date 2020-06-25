@@ -40,15 +40,15 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="nome">Nome do Projeto</label>
-                                    <input type="text" name="nome" id="nome" class="form-control" value="{{ obra.nome }}">
+                                    <input type="text" name="nome" id="nome" class="form-control" value="{{ obra.nome }}" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">E-mail</label>
-                                    <input type="email" name="email" id="email" class="form-control" value="{{ obra.email }}">
+                                    <input type="email" name="email" id="email" class="form-control" value="{{ obra.email }}" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="cnpj">CNPJ</label>
-                                    <input type="text" name="cnpj" id="cnpj" class="form-control" value="{{ obra.cnpj }}">
+                                    <input type="text" name="cnpj" id="cnpj" class="form-control" value="{{ obra.cnpj }}" maxlength="14" required>
                                 </div>
                                 {#              <div class="form-group">#}
                                 {#                <label for="inputDescription">Project Description</label>#}
@@ -83,11 +83,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="data_inicio">Data de Início</label>
-                                    <input type="date" name="data_inicio" id="data_inicio" class="form-control" value="{{ obra.data_inicio }}">
+                                    <input type="date" name="data_inicio" id="data_inicio" class="form-control" value="{{ obra.data_inicio|date:"Y-m-d" }}" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="data_termino">Data de Término</label>
-                                    <input type="date" name="data_termino" id="data_termino" class="form-control" value="{{ obra.data_termino }}">
+                                    <input type="date" name="data_termino" id="data_termino" class="form-control" value="{{ obra.data_termino|date:"Y-m-d" }}" required>
                                 </div>
                             </div>
                             <!-- /.card-body -->
@@ -132,19 +132,19 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="cidade">Cidade</label>
-                                    <input type="text" name="cidade" id="cidade" class="form-control" value="{{ obra.cidade }}">
+                                    <input type="text" name="cidade" id="cidade" class="form-control" value="{{ obra.cidade }}" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="estado">Estado</label>
-                                    <input type="text" name="estado" id="estado" class="form-control" value="{{ obra.estado }}">
+                                    <input type="text" name="estado" id="estado" class="form-control text-uppercase" value="{{ obra.estado }}" maxlength="2" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="cep">CEP</label>
-                                    <input type="text" name="cep" id="cep" class="form-control" value="{{ obra.cep }}">
+                                    <input type="text" name="cep" id="cep" class="form-control" value="{{ obra.cep }}" maxlength="8">
                                 </div>
                                 <div class="form-group">
                                     <label for="cno">CNO</label>
-                                    <input type="text" name="cno" id="cno" class="form-control" value="{{ obra.cno }}">
+                                    <input type="text" name="cno" id="cno" class="form-control" value="{{ obra.cno }}" maxlength="12">
                                 </div>
                                 <div class="form-group">
                                     <label for="site">Site</label>

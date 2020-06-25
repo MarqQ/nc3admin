@@ -80,7 +80,7 @@
                                 </a>
                                 <br/>
                                 <small>
-                                    Iniciado em {{ o.data_inicio }}
+                                    Início em {{ o.data_inicio|date:"d/m/Y"  }}
                                 </small>
                             </td>
                             {#                      <td>#}
@@ -103,7 +103,7 @@
                                     1% Executado
                                 </small>
                             </td>
-                            {% if o.data_inicio %}
+                            {% if o.data_inicio|date:"d/m/Y" %}
                             <td class="project-state">
                                 <span class="badge badge-success">No Prazo</span>
                             </td>
