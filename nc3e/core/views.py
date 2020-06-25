@@ -115,8 +115,9 @@ def clientesAdd(request):
 
 
 # @login_required(login_url='login')
-def clientesEdit(request):
-    return render(request, 'clientes/clientes-edit.html')
+def clientesEdit(request, id):
+    cliente = Cliente.objects.get(id=id)
+    return render(request, 'clientes/clientes-edit.html', {'cliente': cliente})
 
 
 # @login_required(login_url='login')
@@ -162,8 +163,9 @@ def fornecedoresAdd(request):
 
 
 # @login_required(login_url='login')
-def fornecedoresEdit(request):
-    return render(request, 'fornecedores/fornecedores-edit.html')
+def fornecedoresEdit(request, id):
+    fornecedor = Fornecedor.objects.get(id=id)
+    return render(request, 'fornecedores/fornecedores-edit.html', {'fornecedor': fornecedor})
 
 
 # @login_required(login_url='login')
@@ -206,8 +208,9 @@ def obrasAdd(request):
 
 
 # @login_required(login_url='login')
-def obrasEdit(request):
-    return render(request, 'obras/obras-edit.html')
+def obrasEdit(request, id):
+    obra = Obra.objects.get(id=id)
+    return render(request, 'obras/obras-edit.html', {'obra': obra})
 
 
 # @login_required(login_url='login')

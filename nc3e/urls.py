@@ -32,19 +32,19 @@ urlpatterns = [
     path('clientes', views.clientes, name='clientes'),
     path('clientes-add', views.clientesAdd, name='clientes-add'),
     path('clientes-set', views.set_clientes, name='clientes-set'),
-    path('clientes-edit', views.clientesEdit, name='clientes-edit'),
+    path('clientes-edit/<id>/', views.clientesEdit, name='clientes-edit'),
     path('clientes-delete/<id>/', views.clientesDelete, name='clientes-delete'),
 
     path('fornecedores', views.fornecedores, name='fornecedores'),
     path('fornecedores-add', views.fornecedoresAdd, name='fornecedores-add'),
     path('fornecedores-set', views.set_fornecedores, name='fornecedores-set'),
-    path('fornecedores-edit', views.fornecedoresEdit, name='fornecedores-edit'),
+    path('fornecedores-edit/<id>/', views.fornecedoresEdit, name='fornecedores-edit'),
     path('fornecedores-delete/<id>/', views.fornecedoresDelete, name='fornecedores-delete'),
 
     path('obras', views.obras, name='obras'),
     path('obras-add', views.obrasAdd, name='obras-add'),
     path('obras-set', views.set_obras, name='obras-set'),
-    path('obras-edit', views.obrasEdit, name='obras-edit'),
+    path('obras-edit/<id>/', views.obrasEdit, name='obras-edit'),
     path('obras-delete/<id>/', views.obrasDelete, name='obras-delete'),
 
     path('usuarios', views.usuarios, name='usuarios'),
