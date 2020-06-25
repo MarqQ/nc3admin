@@ -49,7 +49,7 @@ urlpatterns = [
 
     path('usuarios', views.usuarios, name='usuarios'),
     path('usuarios-add', views.usuariosAdd, name='usuarios-add'),
-    path('usuarios-edit/<int:id>/', views.usuariosEdit, name='usuarios-edit'),
+    path('usuarios-edit/<id>/', views.usuariosEdit, name='usuarios-edit'),
     path('usuarios-delete/<id>/', views.usuariosDelete, name='usuarios-delete'),
 
     path('not-found', views.notFound, name='not-found'),

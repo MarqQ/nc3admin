@@ -22,7 +22,8 @@
 
         <!-- Main content -->
         <section class="content">
-            <form method="POST" action="" class="form-horizontal">
+            <form method="POST" action="{% url 'obras-set' %}" class="form-horizontal">
+                <input type="number" class="form-control" name="obra-id" value="{{ obra.id }}" hidden>
             {% csrf_token %}
                 <div class="row">
                     <div class="col-md-6">

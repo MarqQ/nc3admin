@@ -53,25 +53,45 @@ def register(request):
         logradouro_completo = request.POST['logradouro_completo']
         crea = request.POST['crea']
         perfil = request.POST['perfil']
+        user_id = request.POST['user-id']
         password1 = request.POST['password1']
         password2 = request.POST['password2']
 
-        if password1 == password2:
-            if get_user_model().objects.filter(email=email).exists():
-                print('Email já está em uso!')
-            else:
-                user = get_user_model().objects.create_user(first_name=first_name, last_name=last_name,
-                                                            username=email, cpf=cpf, cnpj=cnpj,
-                                                            data_nascimento=data_nascimento, telefone=telefone, cep=cep,
-                                                            estado=estado, cidade=cidade,
-                                                            logradouro_completo=logradouro_completo, perfil=perfil,
-                                                            crea=crea, password=password1, email=email)
-                user.save()
-                print('Usuário criado com sucesso!')
-                return redirect('usuarios')
+        if user_id:
+            user = get_user_model().objects.get(id=user_id)
+            user.first_name = first_name
+            user.last_name = last_name
+            user.email = email
+            user.cpf = cpf
+            user.cnpj = cnpj
+            user.data_nascimento = data_nascimento
+            user.telefone = telefone
+            user.cep = cep
+            user.estado = estado
+            user.cidade = cidade
+            user.logradouro_completo = logradouro_completo
+            user.crea = crea
+            user.perfil = perfil
+
+            user.save()
+            return redirect('usuarios')
         else:
-            print('As senhas não conferem!')
-        return redirect('home')
+            if password1 == password2:
+                if get_user_model().objects.filter(email=email).exists():
+                    print('Email já está em uso!')
+                else:
+                    user = get_user_model().objects.create_user(first_name=first_name, last_name=last_name,
+                                                                username=email, cpf=cpf, cnpj=cnpj,
+                                                                data_nascimento=data_nascimento, telefone=telefone, cep=cep,
+                                                                estado=estado, cidade=cidade,
+                                                                logradouro_completo=logradouro_completo, perfil=perfil,
+                                                                crea=crea, password=password1, email=email)
+                    user.save()
+                    print('Usuário criado com sucesso!')
+                    return redirect('usuarios')
+            else:
+                print('As senhas não conferem!')
+            return redirect('usuarios')
     else:
         return redirect('usuarios')
 
@@ -102,10 +122,25 @@ def set_clientes(request):
     estado = request.POST.get('estado')
     cep = request.POST.get('cep')
     observacoes = request.POST.get('observacoes')
+    cliente_id = request.POST.get('cliente-id')
     fornecedor_cadastro = request.user.id
-    cliente = Cliente.objects.create(nome=nome, segmento=segmento, doc=doc, endereco=endereco, cidade=cidade,
+    if cliente_id:
+        cliente = Cliente.objects.get(id=cliente_id)
+        cliente.nome = nome
+        cliente.segmento = segmento
+        cliente.doc = doc
+        cliente.endereco = endereco
+        cliente.cidade = cidade
+        cliente.estado = estado
+        cliente.cep = cep
+        cliente.observacoes = observacoes
+
+        cliente.save()
+
+    else:
+        cliente = Cliente.objects.create(nome=nome, segmento=segmento, doc=doc, endereco=endereco, cidade=cidade,
                                      estado=estado, cep=cep, observacoes=observacoes, criado_por=fornecedor_cadastro)
-    cliente.save()
+        cliente.save()
     return redirect('clientes')
 
 
@@ -148,12 +183,30 @@ def set_fornecedores(request):
     horario_funcionamento = request.POST.get('horario_funcionamento')
     observacoes = request.POST.get('observacoes')
     logotipo = request.POST.get('logotipo')
+    fornecedor_id = request.POST.get('fornecedor-id')
     usuario_cadastro = request.user.id
-    fornecedor = Fornecedor.objects.create(nome_fantasia=nome_fantasia, nome_empresa=nome_juridico, cnpj=cnpj,
+    if fornecedor_id:
+        fornecedor = Fornecedor.objects.get(id=fornecedor_id)
+        fornecedor.nome_fantasia = nome_fantasia
+        fornecedor.nome_juridico = nome_juridico
+        fornecedor.cnpj = cnpj
+        fornecedor.ramo_desc = ramo
+        fornecedor.endereco = endereco
+        fornecedor.cidade = cidade
+        fornecedor.estado = estado
+        fornecedor.cep = cep
+        fornecedor.horario_funcionamento = horario_funcionamento
+        fornecedor.observacoes = observacoes
+        fornecedor.logotipo = logotipo
+
+        fornecedor.save()
+
+    else:
+        fornecedor = Fornecedor.objects.create(nome_fantasia=nome_fantasia, nome_empresa=nome_juridico, cnpj=cnpj,
                                            ramo_desc=ramo, endereco=endereco, cidade=cidade, estado=estado, cep=cep,
                                            horario_funcionamento=horario_funcionamento, observacoes=observacoes,
                                            logotipo=logotipo, criado_por=usuario_cadastro)
-    fornecedor.save()
+        fornecedor.save()
     return redirect('fornecedores')
 
 
@@ -194,11 +247,28 @@ def set_obras(request):
     cep = request.POST.get('cep')
     cno = request.POST.get('cno')
     site = request.POST.get('site')
+    obra_id = request.POST.get('obra-id')
     usuario_cadastro = request.user.id
-    obra = Obra.objects.create(nome=nome, email=email, cnpj=cnpj, data_inicio=data_inicio, data_termino=data_termino,
+    if obra_id:
+        obra = Obra.objects.get(id=obra_id)
+        obra.nome = nome
+        obra.email = email
+        obra.cnpj = cnpj
+        obra.data_inicio = data_inicio
+        obra.data_termino = data_termino
+        obra.endereco = endereco
+        obra.cidade = cidade
+        obra.estado = estado
+        obra.cep = cep
+        obra.cno = cno
+        obra.site = site
+
+        obra.save()
+    else:
+        obra = Obra.objects.create(nome=nome, email=email, cnpj=cnpj, data_inicio=data_inicio, data_termino=data_termino,
                                endereco=endereco, cidade=cidade, estado=estado, cep=cep, cno=cno, site=site,
                                criado_por=usuario_cadastro)
-    obra.save()
+        obra.save()
     return redirect('obras')
 
 
@@ -233,11 +303,8 @@ def usuariosAdd(request):
 
 # @login_required(login_url='login')
 def usuariosEdit(request, id):
-    usuario_id = request.GET.get('id')
-    if usuario_id:
-        user = User.objects.get(id=id)
-        return render(request, 'usuarios/usuarios-edit.html', {'user': user})
-    return render(request, 'usuarios/usuarios-edit.html')
+    user = User.objects.get(id=id)
+    return render(request, 'usuarios/usuarios-edit.html', {'user': user})
 
 
 # @login_required(login_url='login')
