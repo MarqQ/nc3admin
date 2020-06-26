@@ -1143,7 +1143,7 @@ COPY public.auth_permission (id, name, content_type_id, codename) FROM stdin;
 --
 
 COPY public.cliente (id, nome, segmento, doc, endereco, cidade, estado, cep, observacoes, active, begin_date, criado_por) FROM stdin;
-6	Irmãos Maia	Contrução Civil	27123905000105	Rua das Araucárias, 1212	Aráucaria	pr	81800000	Atendimento das 08:00 às 18:00 e sábado das 08:00 às 13:00	t	2020-06-25 19:29:21.346934-03	28
+8	Ricardo Silva Associados	Administrador de Condomínios	32416546000181	Avenida Santos Andrade, 90	São Paulo	sp	81800100	Financeiro: financeiro@rsassociados.com.br - Maurício\r\nComercial: negocios@rsassociados.com.br - Carla	t	2020-06-26 10:43:43.968535-03	28
 \.
 
 
@@ -1232,6 +1232,8 @@ COPY public.django_migrations (id, app, name, applied) FROM stdin;
 
 COPY public.django_session (session_key, session_data, expire_date) FROM stdin;
 xiv5d94igmbi4qc5ofgirb21kv5qm1nb	M2YxYmUxMzA3OGYwMWNjZWFmMTVjNDBiNTA4OTg2Y2JhYzY0Y2YzYTp7Il9hdXRoX3VzZXJfaWQiOiIyOCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNWQzMmZiZTAxOWFkZjA4YzkzODMyMWM4ZjVhOGZmMzI2NTcyNTFmNiJ9	2020-07-10 09:55:14.834307-03
+423up5niy53bh99163k1j4o2trphty6b	M2YxYmUxMzA3OGYwMWNjZWFmMTVjNDBiNTA4OTg2Y2JhYzY0Y2YzYTp7Il9hdXRoX3VzZXJfaWQiOiIyOCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNWQzMmZiZTAxOWFkZjA4YzkzODMyMWM4ZjVhOGZmMzI2NTcyNTFmNiJ9	2020-07-10 10:24:51.247838-03
+qprpmqwkr6b63jy15bzn5m21r2u7jrcl	M2YxYmUxMzA3OGYwMWNjZWFmMTVjNDBiNTA4OTg2Y2JhYzY0Y2YzYTp7Il9hdXRoX3VzZXJfaWQiOiIyOCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNWQzMmZiZTAxOWFkZjA4YzkzODMyMWM4ZjVhOGZmMzI2NTcyNTFmNiJ9	2020-07-10 11:10:02.017227-03
 \.
 
 
@@ -1240,7 +1242,7 @@ xiv5d94igmbi4qc5ofgirb21kv5qm1nb	M2YxYmUxMzA3OGYwMWNjZWFmMTVjNDBiNTA4OTg2Y2JhYzY
 --
 
 COPY public.fornecedor (id, nome_fantasia, nome_empresa, cnpj, ramo, ramo_desc, endereco, cidade, estado, cep, horario_funcionamento, observacoes, logotipo, criado_por, active, begin_date) FROM stdin;
-21	Leroy Merlin	LerLeroy Merlin Companhia Brasileira de Bricolagem	01438784001250		Materiais de Construção	Avenida Ayrton Senna, 2000	Rio de Janeiro	rj	81800000	Das 08:00 às 20:00	Comércio varejista de ferragens, madeira e materiais de construção		28	t	2020-06-25 19:27:12.438912-03
+25	Casa do Construtor	asd	01321321300013		Materiais de Construção	Rua das Américas, 600	Londrina	PR	81800300	Segunda à Sexta: 08:00 - 19:00\r\nSábado: 08:00 - 13:00	Entrega grátis em compras acima de R$10.000,00		28	t	2020-06-26 11:10:13.04166-03
 \.
 
 
@@ -1322,7 +1324,7 @@ COPY public.ramo (id, descricao) FROM stdin;
 --
 
 COPY public.usuario (id, password, first_name, last_name, email, username, data_nascimento, cpf, cnpj, telefone, cep, estado, cidade, logradouro_completo, crea, perfil, funcao, date_joined, last_login, is_admin, is_active, is_staff, is_superuser) FROM stdin;
-28	pbkdf2_sha256$180000$Tq1WPi95DMWi$xqmU/ieuK0WKt7fhDzz3jwOVlSqfIZ6nxWrEUqSyqoc=	Carlos	Silva	suporte@asdfg.com.br	suporte@asdfg.com.br	1900-10-26	05470499120	67402710000119	41995225588	81800300	PR	Curitiba	Rua Visconde de Guarapuava, 123	353731	Administrador	\N	2020-06-25 17:06:24.781571-03	2020-06-26 09:55:14.826432-03	f	t	f	f
+28	pbkdf2_sha256$180000$Tq1WPi95DMWi$xqmU/ieuK0WKt7fhDzz3jwOVlSqfIZ6nxWrEUqSyqoc=	Carlos	Silva	suporte@asdfg.com.br	suporte@asdfg.com.br	1900-10-26	05470499120	67402710000119	41995225588	81800300	PR	Curitiba	Rua Visconde de Guarapuava, 123	353731	Administrador	\N	2020-06-25 17:06:24.781571-03	2020-06-26 11:10:02.017227-03	f	t	f	f
 \.
 
 
@@ -1374,7 +1376,7 @@ SELECT pg_catalog.setval('public.cliente_email_id_seq', 1, false);
 -- Name: cliente_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.cliente_id_seq', 6, true);
+SELECT pg_catalog.setval('public.cliente_id_seq', 9, true);
 
 
 --
@@ -1416,7 +1418,7 @@ SELECT pg_catalog.setval('public.fornecedor_email_id_seq', 1, false);
 -- Name: fornecedor_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.fornecedor_id_seq', 21, true);
+SELECT pg_catalog.setval('public.fornecedor_id_seq', 26, true);
 
 
 --
@@ -1444,7 +1446,7 @@ SELECT pg_catalog.setval('public.obra_fornecedor_id_seq', 1, false);
 -- Name: obra_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.obra_id_seq', 10, true);
+SELECT pg_catalog.setval('public.obra_id_seq', 11, true);
 
 
 --
@@ -1486,7 +1488,7 @@ SELECT pg_catalog.setval('public.usuario_groups_id_seq', 1, false);
 -- Name: usuario_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.usuario_id_seq', 28, true);
+SELECT pg_catalog.setval('public.usuario_id_seq', 29, true);
 
 
 --

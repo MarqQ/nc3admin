@@ -333,9 +333,9 @@ def usuariosDelete(request, id):
 
 @login_required(login_url='login')
 def notFound(request):
-    return render(request, '404.html')
+    return render(request, '404.html', status=404)
 
 
 @login_required(login_url='login')
 def serverError(request):
-    return render(request, '500.html')
+    return render(request, '500.html', status=500)
