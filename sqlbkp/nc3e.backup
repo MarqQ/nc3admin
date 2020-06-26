@@ -1,0 +1,1920 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 10.13
+-- Dumped by pg_dump version 10.13
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: auth_group; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.auth_group (
+    id integer NOT NULL,
+    name character varying(150) NOT NULL
+);
+
+
+ALTER TABLE public.auth_group OWNER TO postgres;
+
+--
+-- Name: auth_group_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.auth_group_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.auth_group_id_seq OWNER TO postgres;
+
+--
+-- Name: auth_group_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.auth_group_id_seq OWNED BY public.auth_group.id;
+
+
+--
+-- Name: auth_group_permissions; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.auth_group_permissions (
+    id integer NOT NULL,
+    group_id integer NOT NULL,
+    permission_id integer NOT NULL
+);
+
+
+ALTER TABLE public.auth_group_permissions OWNER TO postgres;
+
+--
+-- Name: auth_group_permissions_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.auth_group_permissions_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.auth_group_permissions_id_seq OWNER TO postgres;
+
+--
+-- Name: auth_group_permissions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.auth_group_permissions_id_seq OWNED BY public.auth_group_permissions.id;
+
+
+--
+-- Name: auth_permission; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.auth_permission (
+    id integer NOT NULL,
+    name character varying(255) NOT NULL,
+    content_type_id integer NOT NULL,
+    codename character varying(100) NOT NULL
+);
+
+
+ALTER TABLE public.auth_permission OWNER TO postgres;
+
+--
+-- Name: auth_permission_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.auth_permission_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.auth_permission_id_seq OWNER TO postgres;
+
+--
+-- Name: auth_permission_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.auth_permission_id_seq OWNED BY public.auth_permission.id;
+
+
+--
+-- Name: cliente; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.cliente (
+    id integer NOT NULL,
+    nome character varying(100) NOT NULL,
+    segmento character varying(100) NOT NULL,
+    doc character varying(100) NOT NULL,
+    endereco character varying(100) NOT NULL,
+    cidade character varying(100) NOT NULL,
+    estado character varying(100) NOT NULL,
+    cep character varying(8) NOT NULL,
+    observacoes text,
+    active boolean NOT NULL,
+    begin_date timestamp with time zone NOT NULL,
+    criado_por character varying(100) NOT NULL
+);
+
+
+ALTER TABLE public.cliente OWNER TO postgres;
+
+--
+-- Name: cliente_email; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.cliente_email (
+    id integer NOT NULL,
+    cliente character varying(100) NOT NULL,
+    email character varying(254) NOT NULL
+);
+
+
+ALTER TABLE public.cliente_email OWNER TO postgres;
+
+--
+-- Name: cliente_email_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.cliente_email_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.cliente_email_id_seq OWNER TO postgres;
+
+--
+-- Name: cliente_email_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.cliente_email_id_seq OWNED BY public.cliente_email.id;
+
+
+--
+-- Name: cliente_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.cliente_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.cliente_id_seq OWNER TO postgres;
+
+--
+-- Name: cliente_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.cliente_id_seq OWNED BY public.cliente.id;
+
+
+--
+-- Name: cliente_telefone; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.cliente_telefone (
+    id integer NOT NULL,
+    cliente character varying(100) NOT NULL,
+    telefone character varying(100) NOT NULL
+);
+
+
+ALTER TABLE public.cliente_telefone OWNER TO postgres;
+
+--
+-- Name: cliente_telefone_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.cliente_telefone_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.cliente_telefone_id_seq OWNER TO postgres;
+
+--
+-- Name: cliente_telefone_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.cliente_telefone_id_seq OWNED BY public.cliente_telefone.id;
+
+
+--
+-- Name: django_admin_log; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.django_admin_log (
+    id integer NOT NULL,
+    action_time timestamp with time zone NOT NULL,
+    object_id text,
+    object_repr character varying(200) NOT NULL,
+    action_flag smallint NOT NULL,
+    change_message text NOT NULL,
+    content_type_id integer,
+    user_id integer NOT NULL,
+    CONSTRAINT django_admin_log_action_flag_check CHECK ((action_flag >= 0))
+);
+
+
+ALTER TABLE public.django_admin_log OWNER TO postgres;
+
+--
+-- Name: django_admin_log_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.django_admin_log_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.django_admin_log_id_seq OWNER TO postgres;
+
+--
+-- Name: django_admin_log_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.django_admin_log_id_seq OWNED BY public.django_admin_log.id;
+
+
+--
+-- Name: django_content_type; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.django_content_type (
+    id integer NOT NULL,
+    app_label character varying(100) NOT NULL,
+    model character varying(100) NOT NULL
+);
+
+
+ALTER TABLE public.django_content_type OWNER TO postgres;
+
+--
+-- Name: django_content_type_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.django_content_type_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.django_content_type_id_seq OWNER TO postgres;
+
+--
+-- Name: django_content_type_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.django_content_type_id_seq OWNED BY public.django_content_type.id;
+
+
+--
+-- Name: django_migrations; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.django_migrations (
+    id integer NOT NULL,
+    app character varying(255) NOT NULL,
+    name character varying(255) NOT NULL,
+    applied timestamp with time zone NOT NULL
+);
+
+
+ALTER TABLE public.django_migrations OWNER TO postgres;
+
+--
+-- Name: django_migrations_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.django_migrations_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.django_migrations_id_seq OWNER TO postgres;
+
+--
+-- Name: django_migrations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.django_migrations_id_seq OWNED BY public.django_migrations.id;
+
+
+--
+-- Name: django_session; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.django_session (
+    session_key character varying(40) NOT NULL,
+    session_data text NOT NULL,
+    expire_date timestamp with time zone NOT NULL
+);
+
+
+ALTER TABLE public.django_session OWNER TO postgres;
+
+--
+-- Name: fornecedor; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.fornecedor (
+    id integer NOT NULL,
+    nome_fantasia character varying(100) NOT NULL,
+    nome_empresa character varying(100) NOT NULL,
+    cnpj character varying(100) NOT NULL,
+    ramo character varying(100) NOT NULL,
+    ramo_desc text NOT NULL,
+    endereco character varying(100) NOT NULL,
+    cidade character varying(100) NOT NULL,
+    estado character varying(100) NOT NULL,
+    cep character varying(100) NOT NULL,
+    horario_funcionamento text,
+    observacoes text,
+    logotipo character varying(100),
+    criado_por character varying(100) NOT NULL,
+    active boolean NOT NULL,
+    begin_date timestamp with time zone NOT NULL
+);
+
+
+ALTER TABLE public.fornecedor OWNER TO postgres;
+
+--
+-- Name: fornecedor_email; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.fornecedor_email (
+    id integer NOT NULL,
+    fornecedor character varying(100) NOT NULL,
+    email character varying(254) NOT NULL
+);
+
+
+ALTER TABLE public.fornecedor_email OWNER TO postgres;
+
+--
+-- Name: fornecedor_email_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.fornecedor_email_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.fornecedor_email_id_seq OWNER TO postgres;
+
+--
+-- Name: fornecedor_email_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.fornecedor_email_id_seq OWNED BY public.fornecedor_email.id;
+
+
+--
+-- Name: fornecedor_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.fornecedor_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.fornecedor_id_seq OWNER TO postgres;
+
+--
+-- Name: fornecedor_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.fornecedor_id_seq OWNED BY public.fornecedor.id;
+
+
+--
+-- Name: fornecedor_telefone; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.fornecedor_telefone (
+    id integer NOT NULL,
+    fornecedor character varying(100) NOT NULL,
+    telefone character varying(11) NOT NULL
+);
+
+
+ALTER TABLE public.fornecedor_telefone OWNER TO postgres;
+
+--
+-- Name: fornecedor_telefone_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.fornecedor_telefone_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.fornecedor_telefone_id_seq OWNER TO postgres;
+
+--
+-- Name: fornecedor_telefone_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.fornecedor_telefone_id_seq OWNED BY public.fornecedor_telefone.id;
+
+
+--
+-- Name: funcao; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.funcao (
+    id integer NOT NULL,
+    descricao character varying(100) NOT NULL
+);
+
+
+ALTER TABLE public.funcao OWNER TO postgres;
+
+--
+-- Name: funcao_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.funcao_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.funcao_id_seq OWNER TO postgres;
+
+--
+-- Name: funcao_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.funcao_id_seq OWNED BY public.funcao.id;
+
+
+--
+-- Name: obra; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.obra (
+    id integer NOT NULL,
+    nome character varying(100) NOT NULL,
+    email character varying(254) NOT NULL,
+    cnpj character varying(100) NOT NULL,
+    "clienteId" character varying(100) NOT NULL,
+    "engenheiroId" character varying(100) NOT NULL,
+    data_inicio date NOT NULL,
+    data_termino date NOT NULL,
+    dias_trabalho character varying(100) NOT NULL,
+    endereco character varying(100) NOT NULL,
+    cidade character varying(100) NOT NULL,
+    estado character varying(100) NOT NULL,
+    cep character varying(8) NOT NULL,
+    cno character varying(100) NOT NULL,
+    site character varying(100) NOT NULL,
+    criado_por character varying(100) NOT NULL
+);
+
+
+ALTER TABLE public.obra OWNER TO postgres;
+
+--
+-- Name: obra_fornecedor; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.obra_fornecedor (
+    id integer NOT NULL,
+    obra character varying(100) NOT NULL,
+    fornecedor character varying(100) NOT NULL
+);
+
+
+ALTER TABLE public.obra_fornecedor OWNER TO postgres;
+
+--
+-- Name: obra_fornecedor_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.obra_fornecedor_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.obra_fornecedor_id_seq OWNER TO postgres;
+
+--
+-- Name: obra_fornecedor_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.obra_fornecedor_id_seq OWNED BY public.obra_fornecedor.id;
+
+
+--
+-- Name: obra_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.obra_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.obra_id_seq OWNER TO postgres;
+
+--
+-- Name: obra_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.obra_id_seq OWNED BY public.obra.id;
+
+
+--
+-- Name: obra_mensagem; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.obra_mensagem (
+    id integer NOT NULL,
+    obra text NOT NULL
+);
+
+
+ALTER TABLE public.obra_mensagem OWNER TO postgres;
+
+--
+-- Name: obra_mensagem_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.obra_mensagem_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.obra_mensagem_id_seq OWNER TO postgres;
+
+--
+-- Name: obra_mensagem_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.obra_mensagem_id_seq OWNED BY public.obra_mensagem.id;
+
+
+--
+-- Name: obra_tarefa; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.obra_tarefa (
+    id integer NOT NULL,
+    obra character varying(100) NOT NULL,
+    nome character varying(100) NOT NULL,
+    data_inicio date NOT NULL,
+    data_termino date NOT NULL,
+    empresa_resp character varying(100) NOT NULL,
+    concluido integer NOT NULL,
+    depende character varying(100) NOT NULL,
+    depende_valor integer NOT NULL,
+    nivel character varying(100) NOT NULL,
+    peso_nivel integer NOT NULL,
+    principal character varying(100) NOT NULL
+);
+
+
+ALTER TABLE public.obra_tarefa OWNER TO postgres;
+
+--
+-- Name: obra_tarefa_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.obra_tarefa_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.obra_tarefa_id_seq OWNER TO postgres;
+
+--
+-- Name: obra_tarefa_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.obra_tarefa_id_seq OWNED BY public.obra_tarefa.id;
+
+
+--
+-- Name: perfil; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.perfil (
+    id integer NOT NULL,
+    descricao character varying(100) NOT NULL
+);
+
+
+ALTER TABLE public.perfil OWNER TO postgres;
+
+--
+-- Name: perfil_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.perfil_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.perfil_id_seq OWNER TO postgres;
+
+--
+-- Name: perfil_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.perfil_id_seq OWNED BY public.perfil.id;
+
+
+--
+-- Name: ramo; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.ramo (
+    id integer NOT NULL,
+    descricao character varying(100) NOT NULL
+);
+
+
+ALTER TABLE public.ramo OWNER TO postgres;
+
+--
+-- Name: ramo_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.ramo_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.ramo_id_seq OWNER TO postgres;
+
+--
+-- Name: ramo_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.ramo_id_seq OWNED BY public.ramo.id;
+
+
+--
+-- Name: usuario; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.usuario (
+    id integer NOT NULL,
+    password character varying(128) NOT NULL,
+    first_name character varying(30) NOT NULL,
+    last_name character varying(30) NOT NULL,
+    email character varying(60) NOT NULL,
+    username character varying(30) NOT NULL,
+    data_nascimento date,
+    cpf character varying(11),
+    cnpj character varying(14),
+    telefone character varying(11),
+    cep character varying(8) NOT NULL,
+    estado character varying(2) NOT NULL,
+    cidade character varying(20) NOT NULL,
+    logradouro_completo character varying(100) NOT NULL,
+    crea character varying(100),
+    perfil character varying(100) NOT NULL,
+    funcao character varying(100),
+    date_joined timestamp with time zone NOT NULL,
+    last_login timestamp with time zone NOT NULL,
+    is_admin boolean NOT NULL,
+    is_active boolean NOT NULL,
+    is_staff boolean NOT NULL,
+    is_superuser boolean NOT NULL
+);
+
+
+ALTER TABLE public.usuario OWNER TO postgres;
+
+--
+-- Name: usuario_groups; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.usuario_groups (
+    id integer NOT NULL,
+    user_id integer NOT NULL,
+    group_id integer NOT NULL
+);
+
+
+ALTER TABLE public.usuario_groups OWNER TO postgres;
+
+--
+-- Name: usuario_groups_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.usuario_groups_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.usuario_groups_id_seq OWNER TO postgres;
+
+--
+-- Name: usuario_groups_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.usuario_groups_id_seq OWNED BY public.usuario_groups.id;
+
+
+--
+-- Name: usuario_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.usuario_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.usuario_id_seq OWNER TO postgres;
+
+--
+-- Name: usuario_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.usuario_id_seq OWNED BY public.usuario.id;
+
+
+--
+-- Name: usuario_user_permissions; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.usuario_user_permissions (
+    id integer NOT NULL,
+    user_id integer NOT NULL,
+    permission_id integer NOT NULL
+);
+
+
+ALTER TABLE public.usuario_user_permissions OWNER TO postgres;
+
+--
+-- Name: usuario_user_permissions_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.usuario_user_permissions_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.usuario_user_permissions_id_seq OWNER TO postgres;
+
+--
+-- Name: usuario_user_permissions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.usuario_user_permissions_id_seq OWNED BY public.usuario_user_permissions.id;
+
+
+--
+-- Name: auth_group id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_group ALTER COLUMN id SET DEFAULT nextval('public.auth_group_id_seq'::regclass);
+
+
+--
+-- Name: auth_group_permissions id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_group_permissions ALTER COLUMN id SET DEFAULT nextval('public.auth_group_permissions_id_seq'::regclass);
+
+
+--
+-- Name: auth_permission id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_permission ALTER COLUMN id SET DEFAULT nextval('public.auth_permission_id_seq'::regclass);
+
+
+--
+-- Name: cliente id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cliente ALTER COLUMN id SET DEFAULT nextval('public.cliente_id_seq'::regclass);
+
+
+--
+-- Name: cliente_email id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cliente_email ALTER COLUMN id SET DEFAULT nextval('public.cliente_email_id_seq'::regclass);
+
+
+--
+-- Name: cliente_telefone id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cliente_telefone ALTER COLUMN id SET DEFAULT nextval('public.cliente_telefone_id_seq'::regclass);
+
+
+--
+-- Name: django_admin_log id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.django_admin_log ALTER COLUMN id SET DEFAULT nextval('public.django_admin_log_id_seq'::regclass);
+
+
+--
+-- Name: django_content_type id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.django_content_type ALTER COLUMN id SET DEFAULT nextval('public.django_content_type_id_seq'::regclass);
+
+
+--
+-- Name: django_migrations id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.django_migrations ALTER COLUMN id SET DEFAULT nextval('public.django_migrations_id_seq'::regclass);
+
+
+--
+-- Name: fornecedor id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.fornecedor ALTER COLUMN id SET DEFAULT nextval('public.fornecedor_id_seq'::regclass);
+
+
+--
+-- Name: fornecedor_email id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.fornecedor_email ALTER COLUMN id SET DEFAULT nextval('public.fornecedor_email_id_seq'::regclass);
+
+
+--
+-- Name: fornecedor_telefone id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.fornecedor_telefone ALTER COLUMN id SET DEFAULT nextval('public.fornecedor_telefone_id_seq'::regclass);
+
+
+--
+-- Name: funcao id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.funcao ALTER COLUMN id SET DEFAULT nextval('public.funcao_id_seq'::regclass);
+
+
+--
+-- Name: obra id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.obra ALTER COLUMN id SET DEFAULT nextval('public.obra_id_seq'::regclass);
+
+
+--
+-- Name: obra_fornecedor id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.obra_fornecedor ALTER COLUMN id SET DEFAULT nextval('public.obra_fornecedor_id_seq'::regclass);
+
+
+--
+-- Name: obra_mensagem id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.obra_mensagem ALTER COLUMN id SET DEFAULT nextval('public.obra_mensagem_id_seq'::regclass);
+
+
+--
+-- Name: obra_tarefa id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.obra_tarefa ALTER COLUMN id SET DEFAULT nextval('public.obra_tarefa_id_seq'::regclass);
+
+
+--
+-- Name: perfil id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.perfil ALTER COLUMN id SET DEFAULT nextval('public.perfil_id_seq'::regclass);
+
+
+--
+-- Name: ramo id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.ramo ALTER COLUMN id SET DEFAULT nextval('public.ramo_id_seq'::regclass);
+
+
+--
+-- Name: usuario id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.usuario ALTER COLUMN id SET DEFAULT nextval('public.usuario_id_seq'::regclass);
+
+
+--
+-- Name: usuario_groups id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.usuario_groups ALTER COLUMN id SET DEFAULT nextval('public.usuario_groups_id_seq'::regclass);
+
+
+--
+-- Name: usuario_user_permissions id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.usuario_user_permissions ALTER COLUMN id SET DEFAULT nextval('public.usuario_user_permissions_id_seq'::regclass);
+
+
+--
+-- Data for Name: auth_group; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.auth_group (id, name) FROM stdin;
+\.
+
+
+--
+-- Data for Name: auth_group_permissions; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.auth_group_permissions (id, group_id, permission_id) FROM stdin;
+\.
+
+
+--
+-- Data for Name: auth_permission; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.auth_permission (id, name, content_type_id, codename) FROM stdin;
+1	Can add log entry	1	add_logentry
+2	Can change log entry	1	change_logentry
+3	Can delete log entry	1	delete_logentry
+4	Can view log entry	1	view_logentry
+5	Can add permission	2	add_permission
+6	Can change permission	2	change_permission
+7	Can delete permission	2	delete_permission
+8	Can view permission	2	view_permission
+9	Can add group	3	add_group
+10	Can change group	3	change_group
+11	Can delete group	3	delete_group
+12	Can view group	3	view_group
+13	Can add content type	4	add_contenttype
+14	Can change content type	4	change_contenttype
+15	Can delete content type	4	delete_contenttype
+16	Can view content type	4	view_contenttype
+17	Can add session	5	add_session
+18	Can change session	5	change_session
+19	Can delete session	5	delete_session
+20	Can view session	5	view_session
+21	Can add cliente	6	add_cliente
+22	Can change cliente	6	change_cliente
+23	Can delete cliente	6	delete_cliente
+24	Can view cliente	6	view_cliente
+25	Can add cliente email	7	add_clienteemail
+26	Can change cliente email	7	change_clienteemail
+27	Can delete cliente email	7	delete_clienteemail
+28	Can view cliente email	7	view_clienteemail
+29	Can add cliente telefone	8	add_clientetelefone
+30	Can change cliente telefone	8	change_clientetelefone
+31	Can delete cliente telefone	8	delete_clientetelefone
+32	Can view cliente telefone	8	view_clientetelefone
+33	Can add fornecedor	9	add_fornecedor
+34	Can change fornecedor	9	change_fornecedor
+35	Can delete fornecedor	9	delete_fornecedor
+36	Can view fornecedor	9	view_fornecedor
+37	Can add fornecedor email	10	add_fornecedoremail
+38	Can change fornecedor email	10	change_fornecedoremail
+39	Can delete fornecedor email	10	delete_fornecedoremail
+40	Can view fornecedor email	10	view_fornecedoremail
+41	Can add fornecedor telefone	11	add_fornecedortelefone
+42	Can change fornecedor telefone	11	change_fornecedortelefone
+43	Can delete fornecedor telefone	11	delete_fornecedortelefone
+44	Can view fornecedor telefone	11	view_fornecedortelefone
+45	Can add funcao	12	add_funcao
+46	Can change funcao	12	change_funcao
+47	Can delete funcao	12	delete_funcao
+48	Can view funcao	12	view_funcao
+49	Can add obra	13	add_obra
+50	Can change obra	13	change_obra
+51	Can delete obra	13	delete_obra
+52	Can view obra	13	view_obra
+53	Can add obra fornecedor	14	add_obrafornecedor
+54	Can change obra fornecedor	14	change_obrafornecedor
+55	Can delete obra fornecedor	14	delete_obrafornecedor
+56	Can view obra fornecedor	14	view_obrafornecedor
+57	Can add obra mensagem	15	add_obramensagem
+58	Can change obra mensagem	15	change_obramensagem
+59	Can delete obra mensagem	15	delete_obramensagem
+60	Can view obra mensagem	15	view_obramensagem
+61	Can add obra tarefa	16	add_obratarefa
+62	Can change obra tarefa	16	change_obratarefa
+63	Can delete obra tarefa	16	delete_obratarefa
+64	Can view obra tarefa	16	view_obratarefa
+65	Can add perfil	17	add_perfil
+66	Can change perfil	17	change_perfil
+67	Can delete perfil	17	delete_perfil
+68	Can view perfil	17	view_perfil
+69	Can add ramo	18	add_ramo
+70	Can change ramo	18	change_ramo
+71	Can delete ramo	18	delete_ramo
+72	Can view ramo	18	view_ramo
+73	Can add user	19	add_user
+74	Can change user	19	change_user
+75	Can delete user	19	delete_user
+76	Can view user	19	view_user
+\.
+
+
+--
+-- Data for Name: cliente; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.cliente (id, nome, segmento, doc, endereco, cidade, estado, cep, observacoes, active, begin_date, criado_por) FROM stdin;
+6	Irmãos Maia	Contrução Civil	27123905000105	Rua das Araucárias, 1212	Aráucaria	pr	81800000	Atendimento das 08:00 às 18:00 e sábado das 08:00 às 13:00	t	2020-06-25 19:29:21.346934-03	28
+\.
+
+
+--
+-- Data for Name: cliente_email; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.cliente_email (id, cliente, email) FROM stdin;
+\.
+
+
+--
+-- Data for Name: cliente_telefone; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.cliente_telefone (id, cliente, telefone) FROM stdin;
+\.
+
+
+--
+-- Data for Name: django_admin_log; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) FROM stdin;
+\.
+
+
+--
+-- Data for Name: django_content_type; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.django_content_type (id, app_label, model) FROM stdin;
+1	admin	logentry
+2	auth	permission
+3	auth	group
+4	contenttypes	contenttype
+5	sessions	session
+6	core	cliente
+7	core	clienteemail
+8	core	clientetelefone
+9	core	fornecedor
+10	core	fornecedoremail
+11	core	fornecedortelefone
+12	core	funcao
+13	core	obra
+14	core	obrafornecedor
+15	core	obramensagem
+16	core	obratarefa
+17	core	perfil
+18	core	ramo
+19	core	user
+\.
+
+
+--
+-- Data for Name: django_migrations; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.django_migrations (id, app, name, applied) FROM stdin;
+1	contenttypes	0001_initial	2020-06-22 12:48:55.41245-03
+2	contenttypes	0002_remove_content_type_name	2020-06-22 12:48:55.427914-03
+3	auth	0001_initial	2020-06-22 12:48:55.443561-03
+4	auth	0002_alter_permission_name_max_length	2020-06-22 12:48:55.508549-03
+5	auth	0003_alter_user_email_max_length	2020-06-22 12:48:55.515536-03
+6	auth	0004_alter_user_username_opts	2020-06-22 12:48:55.521479-03
+7	auth	0005_alter_user_last_login_null	2020-06-22 12:48:55.527469-03
+8	auth	0006_require_contenttypes_0002	2020-06-22 12:48:55.530482-03
+9	auth	0007_alter_validators_add_error_messages	2020-06-22 12:48:55.535481-03
+10	auth	0008_alter_user_username_max_length	2020-06-22 12:48:55.541462-03
+11	auth	0009_alter_user_last_name_max_length	2020-06-22 12:48:55.547412-03
+12	auth	0010_alter_group_name_max_length	2020-06-22 12:48:55.556422-03
+13	auth	0011_update_proxy_permissions	2020-06-22 12:48:55.561672-03
+14	core	0001_initial	2020-06-22 12:48:55.71457-03
+15	admin	0001_initial	2020-06-22 12:48:55.774442-03
+16	admin	0002_logentry_remove_auto_add	2020-06-22 12:48:55.808023-03
+17	admin	0003_logentry_add_action_flag_choices	2020-06-22 12:48:55.815002-03
+18	sessions	0001_initial	2020-06-22 12:48:55.826036-03
+19	core	0002_auto_20200623_2043	2020-06-23 20:43:12.237102-03
+20	core	0003_obra_criado_por	2020-06-24 17:02:53.836667-03
+\.
+
+
+--
+-- Data for Name: django_session; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.django_session (session_key, session_data, expire_date) FROM stdin;
+xiv5d94igmbi4qc5ofgirb21kv5qm1nb	M2YxYmUxMzA3OGYwMWNjZWFmMTVjNDBiNTA4OTg2Y2JhYzY0Y2YzYTp7Il9hdXRoX3VzZXJfaWQiOiIyOCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiNWQzMmZiZTAxOWFkZjA4YzkzODMyMWM4ZjVhOGZmMzI2NTcyNTFmNiJ9	2020-07-10 09:55:14.834307-03
+\.
+
+
+--
+-- Data for Name: fornecedor; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.fornecedor (id, nome_fantasia, nome_empresa, cnpj, ramo, ramo_desc, endereco, cidade, estado, cep, horario_funcionamento, observacoes, logotipo, criado_por, active, begin_date) FROM stdin;
+21	Leroy Merlin	LerLeroy Merlin Companhia Brasileira de Bricolagem	01438784001250		Materiais de Construção	Avenida Ayrton Senna, 2000	Rio de Janeiro	rj	81800000	Das 08:00 às 20:00	Comércio varejista de ferragens, madeira e materiais de construção		28	t	2020-06-25 19:27:12.438912-03
+\.
+
+
+--
+-- Data for Name: fornecedor_email; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.fornecedor_email (id, fornecedor, email) FROM stdin;
+\.
+
+
+--
+-- Data for Name: fornecedor_telefone; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.fornecedor_telefone (id, fornecedor, telefone) FROM stdin;
+\.
+
+
+--
+-- Data for Name: funcao; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.funcao (id, descricao) FROM stdin;
+\.
+
+
+--
+-- Data for Name: obra; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.obra (id, nome, email, cnpj, "clienteId", "engenheiroId", data_inicio, data_termino, dias_trabalho, endereco, cidade, estado, cep, cno, site, criado_por) FROM stdin;
+10	Condomínio Ayton Senna	construtoraselect@select.com.br	27123905000105			2020-07-01	2021-08-30		Avenida Beira Mar	Camboriú	sc	81800000	020431137574	www.construtoraselect.com.br	28
+\.
+
+
+--
+-- Data for Name: obra_fornecedor; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.obra_fornecedor (id, obra, fornecedor) FROM stdin;
+\.
+
+
+--
+-- Data for Name: obra_mensagem; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.obra_mensagem (id, obra) FROM stdin;
+\.
+
+
+--
+-- Data for Name: obra_tarefa; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.obra_tarefa (id, obra, nome, data_inicio, data_termino, empresa_resp, concluido, depende, depende_valor, nivel, peso_nivel, principal) FROM stdin;
+\.
+
+
+--
+-- Data for Name: perfil; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.perfil (id, descricao) FROM stdin;
+\.
+
+
+--
+-- Data for Name: ramo; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.ramo (id, descricao) FROM stdin;
+\.
+
+
+--
+-- Data for Name: usuario; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.usuario (id, password, first_name, last_name, email, username, data_nascimento, cpf, cnpj, telefone, cep, estado, cidade, logradouro_completo, crea, perfil, funcao, date_joined, last_login, is_admin, is_active, is_staff, is_superuser) FROM stdin;
+28	pbkdf2_sha256$180000$Tq1WPi95DMWi$xqmU/ieuK0WKt7fhDzz3jwOVlSqfIZ6nxWrEUqSyqoc=	Carlos	Silva	suporte@asdfg.com.br	suporte@asdfg.com.br	1900-10-26	05470499120	67402710000119	41995225588	81800300	PR	Curitiba	Rua Visconde de Guarapuava, 123	353731	Administrador	\N	2020-06-25 17:06:24.781571-03	2020-06-26 09:55:14.826432-03	f	t	f	f
+\.
+
+
+--
+-- Data for Name: usuario_groups; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.usuario_groups (id, user_id, group_id) FROM stdin;
+\.
+
+
+--
+-- Data for Name: usuario_user_permissions; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.usuario_user_permissions (id, user_id, permission_id) FROM stdin;
+\.
+
+
+--
+-- Name: auth_group_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.auth_group_id_seq', 1, false);
+
+
+--
+-- Name: auth_group_permissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.auth_group_permissions_id_seq', 1, false);
+
+
+--
+-- Name: auth_permission_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.auth_permission_id_seq', 76, true);
+
+
+--
+-- Name: cliente_email_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.cliente_email_id_seq', 1, false);
+
+
+--
+-- Name: cliente_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.cliente_id_seq', 6, true);
+
+
+--
+-- Name: cliente_telefone_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.cliente_telefone_id_seq', 1, false);
+
+
+--
+-- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.django_admin_log_id_seq', 1, false);
+
+
+--
+-- Name: django_content_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.django_content_type_id_seq', 19, true);
+
+
+--
+-- Name: django_migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.django_migrations_id_seq', 20, true);
+
+
+--
+-- Name: fornecedor_email_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.fornecedor_email_id_seq', 1, false);
+
+
+--
+-- Name: fornecedor_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.fornecedor_id_seq', 21, true);
+
+
+--
+-- Name: fornecedor_telefone_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.fornecedor_telefone_id_seq', 1, false);
+
+
+--
+-- Name: funcao_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.funcao_id_seq', 1, false);
+
+
+--
+-- Name: obra_fornecedor_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.obra_fornecedor_id_seq', 1, false);
+
+
+--
+-- Name: obra_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.obra_id_seq', 10, true);
+
+
+--
+-- Name: obra_mensagem_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.obra_mensagem_id_seq', 1, false);
+
+
+--
+-- Name: obra_tarefa_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.obra_tarefa_id_seq', 1, false);
+
+
+--
+-- Name: perfil_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.perfil_id_seq', 1, false);
+
+
+--
+-- Name: ramo_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.ramo_id_seq', 1, false);
+
+
+--
+-- Name: usuario_groups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.usuario_groups_id_seq', 1, false);
+
+
+--
+-- Name: usuario_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.usuario_id_seq', 28, true);
+
+
+--
+-- Name: usuario_user_permissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.usuario_user_permissions_id_seq', 1, false);
+
+
+--
+-- Name: auth_group auth_group_name_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_group
+    ADD CONSTRAINT auth_group_name_key UNIQUE (name);
+
+
+--
+-- Name: auth_group_permissions auth_group_permissions_group_id_permission_id_0cd325b0_uniq; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_group_permissions
+    ADD CONSTRAINT auth_group_permissions_group_id_permission_id_0cd325b0_uniq UNIQUE (group_id, permission_id);
+
+
+--
+-- Name: auth_group_permissions auth_group_permissions_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_group_permissions
+    ADD CONSTRAINT auth_group_permissions_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: auth_group auth_group_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_group
+    ADD CONSTRAINT auth_group_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: auth_permission auth_permission_content_type_id_codename_01ab375a_uniq; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_permission
+    ADD CONSTRAINT auth_permission_content_type_id_codename_01ab375a_uniq UNIQUE (content_type_id, codename);
+
+
+--
+-- Name: auth_permission auth_permission_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_permission
+    ADD CONSTRAINT auth_permission_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: cliente_email cliente_email_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cliente_email
+    ADD CONSTRAINT cliente_email_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: cliente cliente_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cliente
+    ADD CONSTRAINT cliente_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: cliente_telefone cliente_telefone_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cliente_telefone
+    ADD CONSTRAINT cliente_telefone_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: django_admin_log django_admin_log_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.django_admin_log
+    ADD CONSTRAINT django_admin_log_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: django_content_type django_content_type_app_label_model_76bd3d3b_uniq; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.django_content_type
+    ADD CONSTRAINT django_content_type_app_label_model_76bd3d3b_uniq UNIQUE (app_label, model);
+
+
+--
+-- Name: django_content_type django_content_type_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.django_content_type
+    ADD CONSTRAINT django_content_type_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: django_migrations django_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.django_migrations
+    ADD CONSTRAINT django_migrations_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: django_session django_session_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.django_session
+    ADD CONSTRAINT django_session_pkey PRIMARY KEY (session_key);
+
+
+--
+-- Name: fornecedor_email fornecedor_email_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.fornecedor_email
+    ADD CONSTRAINT fornecedor_email_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: fornecedor fornecedor_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.fornecedor
+    ADD CONSTRAINT fornecedor_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: fornecedor_telefone fornecedor_telefone_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.fornecedor_telefone
+    ADD CONSTRAINT fornecedor_telefone_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: funcao funcao_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.funcao
+    ADD CONSTRAINT funcao_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: obra_fornecedor obra_fornecedor_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.obra_fornecedor
+    ADD CONSTRAINT obra_fornecedor_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: obra_mensagem obra_mensagem_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.obra_mensagem
+    ADD CONSTRAINT obra_mensagem_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: obra obra_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.obra
+    ADD CONSTRAINT obra_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: obra_tarefa obra_tarefa_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.obra_tarefa
+    ADD CONSTRAINT obra_tarefa_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: perfil perfil_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.perfil
+    ADD CONSTRAINT perfil_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: ramo ramo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.ramo
+    ADD CONSTRAINT ramo_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: usuario usuario_email_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.usuario
+    ADD CONSTRAINT usuario_email_key UNIQUE (email);
+
+
+--
+-- Name: usuario_groups usuario_groups_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.usuario_groups
+    ADD CONSTRAINT usuario_groups_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: usuario_groups usuario_groups_user_id_group_id_a743d7e7_uniq; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.usuario_groups
+    ADD CONSTRAINT usuario_groups_user_id_group_id_a743d7e7_uniq UNIQUE (user_id, group_id);
+
+
+--
+-- Name: usuario usuario_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.usuario
+    ADD CONSTRAINT usuario_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: usuario_user_permissions usuario_user_permissions_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.usuario_user_permissions
+    ADD CONSTRAINT usuario_user_permissions_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: usuario_user_permissions usuario_user_permissions_user_id_permission_id_30490d1f_uniq; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.usuario_user_permissions
+    ADD CONSTRAINT usuario_user_permissions_user_id_permission_id_30490d1f_uniq UNIQUE (user_id, permission_id);
+
+
+--
+-- Name: usuario usuario_username_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.usuario
+    ADD CONSTRAINT usuario_username_key UNIQUE (username);
+
+
+--
+-- Name: auth_group_name_a6ea08ec_like; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX auth_group_name_a6ea08ec_like ON public.auth_group USING btree (name varchar_pattern_ops);
+
+
+--
+-- Name: auth_group_permissions_group_id_b120cbf9; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX auth_group_permissions_group_id_b120cbf9 ON public.auth_group_permissions USING btree (group_id);
+
+
+--
+-- Name: auth_group_permissions_permission_id_84c5c92e; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX auth_group_permissions_permission_id_84c5c92e ON public.auth_group_permissions USING btree (permission_id);
+
+
+--
+-- Name: auth_permission_content_type_id_2f476e4b; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX auth_permission_content_type_id_2f476e4b ON public.auth_permission USING btree (content_type_id);
+
+
+--
+-- Name: django_admin_log_content_type_id_c4bce8eb; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX django_admin_log_content_type_id_c4bce8eb ON public.django_admin_log USING btree (content_type_id);
+
+
+--
+-- Name: django_admin_log_user_id_c564eba6; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX django_admin_log_user_id_c564eba6 ON public.django_admin_log USING btree (user_id);
+
+
+--
+-- Name: django_session_expire_date_a5c62663; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX django_session_expire_date_a5c62663 ON public.django_session USING btree (expire_date);
+
+
+--
+-- Name: django_session_session_key_c0390e0f_like; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX django_session_session_key_c0390e0f_like ON public.django_session USING btree (session_key varchar_pattern_ops);
+
+
+--
+-- Name: usuario_email_de9343f9_like; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX usuario_email_de9343f9_like ON public.usuario USING btree (email varchar_pattern_ops);
+
+
+--
+-- Name: usuario_groups_group_id_c67c8651; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX usuario_groups_group_id_c67c8651 ON public.usuario_groups USING btree (group_id);
+
+
+--
+-- Name: usuario_groups_user_id_bf125d45; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX usuario_groups_user_id_bf125d45 ON public.usuario_groups USING btree (user_id);
+
+
+--
+-- Name: usuario_user_permissions_permission_id_a8893ce7; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX usuario_user_permissions_permission_id_a8893ce7 ON public.usuario_user_permissions USING btree (permission_id);
+
+
+--
+-- Name: usuario_user_permissions_user_id_96a81eab; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX usuario_user_permissions_user_id_96a81eab ON public.usuario_user_permissions USING btree (user_id);
+
+
+--
+-- Name: usuario_username_7e1fc9dc_like; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX usuario_username_7e1fc9dc_like ON public.usuario USING btree (username varchar_pattern_ops);
+
+
+--
+-- Name: auth_group_permissions auth_group_permissio_permission_id_84c5c92e_fk_auth_perm; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_group_permissions
+    ADD CONSTRAINT auth_group_permissio_permission_id_84c5c92e_fk_auth_perm FOREIGN KEY (permission_id) REFERENCES public.auth_permission(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: auth_group_permissions auth_group_permissions_group_id_b120cbf9_fk_auth_group_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_group_permissions
+    ADD CONSTRAINT auth_group_permissions_group_id_b120cbf9_fk_auth_group_id FOREIGN KEY (group_id) REFERENCES public.auth_group(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: auth_permission auth_permission_content_type_id_2f476e4b_fk_django_co; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.auth_permission
+    ADD CONSTRAINT auth_permission_content_type_id_2f476e4b_fk_django_co FOREIGN KEY (content_type_id) REFERENCES public.django_content_type(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: django_admin_log django_admin_log_content_type_id_c4bce8eb_fk_django_co; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.django_admin_log
+    ADD CONSTRAINT django_admin_log_content_type_id_c4bce8eb_fk_django_co FOREIGN KEY (content_type_id) REFERENCES public.django_content_type(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: django_admin_log django_admin_log_user_id_c564eba6_fk_usuario_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.django_admin_log
+    ADD CONSTRAINT django_admin_log_user_id_c564eba6_fk_usuario_id FOREIGN KEY (user_id) REFERENCES public.usuario(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: usuario_groups usuario_groups_group_id_c67c8651_fk_auth_group_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.usuario_groups
+    ADD CONSTRAINT usuario_groups_group_id_c67c8651_fk_auth_group_id FOREIGN KEY (group_id) REFERENCES public.auth_group(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: usuario_groups usuario_groups_user_id_bf125d45_fk_usuario_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.usuario_groups
+    ADD CONSTRAINT usuario_groups_user_id_bf125d45_fk_usuario_id FOREIGN KEY (user_id) REFERENCES public.usuario(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: usuario_user_permissions usuario_user_permiss_permission_id_a8893ce7_fk_auth_perm; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.usuario_user_permissions
+    ADD CONSTRAINT usuario_user_permiss_permission_id_a8893ce7_fk_auth_perm FOREIGN KEY (permission_id) REFERENCES public.auth_permission(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: usuario_user_permissions usuario_user_permissions_user_id_96a81eab_fk_usuario_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.usuario_user_permissions
+    ADD CONSTRAINT usuario_user_permissions_user_id_96a81eab_fk_usuario_id FOREIGN KEY (user_id) REFERENCES public.usuario(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- PostgreSQL database dump complete
+--
+
